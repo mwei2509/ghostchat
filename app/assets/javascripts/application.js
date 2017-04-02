@@ -26,9 +26,9 @@ $(document).ready(function(){
     // let getVal = $(".active").data("id")
     // $("#group_expires_in").val=getVal
 
-    // let groupData=$(this).serialize()
+    let groupData=$(this).serialize()
 
-    // let url = '/'
+    let url = '/'
     $.post(url,groupData)
       .then(function(data){
         $('.group-new-right-top').html(data)
@@ -42,9 +42,9 @@ $(document).ready(function(){
   // create new user form
   $(document).on('submit','#new_user', function(e){
     e.preventDefault()
-    let slug=$(this).data("slug")
-    // let userData=$(this).serialize()
-    // let url="/" + slug + "/users"
+    // let slug= $(this).data("slug")
+    let userData=$(this).serialize()
+    let url="/" + slug + "/users"
     $.post(url,userData)
       .then(function(data){
         $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
