@@ -3,7 +3,7 @@
 		<div class="group-header">
 			<img src="<%= image_url 'ghost-md.png' %>" width="150">
 			<h1>Expiring Group Chat</h1>
-			<p class="home-description">Create a group for your friends or co-workers in seconds. Solve a problem, share articles and links. All in your browser.</p>
+			<p class="home-description">Create a group for your friends or co-workers in seconds. Solve a problem, share articles and links all in the browser.</p>
 		</div>
 	</div>
 
@@ -17,11 +17,11 @@
 					
 					<div class="cgf-input-container">
 						<label>Title:</label> 
-						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name Your Group!", class: "form-control" %>
+						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name your group!", class: "form-control" %>
 					</div>
 					
 					<div class="cgf-input-container">
-						<label>Password (optional)</label> <%= f.password_field :password, placeholder: "Add This to Make Your Group Private", :autocomplete => :off, class: "form-control" %>
+						<label>Password (optional)</label> <%= f.password_field :password, placeholder: "Make it private if you want", :autocomplete => :off, class: "form-control" %>
 					</div>
 
 					<%= f.fields_for :creator do |c| %>
