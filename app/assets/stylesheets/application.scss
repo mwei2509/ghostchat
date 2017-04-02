@@ -51,15 +51,24 @@ body{
 	padding:20px;
 }
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white !important;
+}
+::-moz-placeholder { 
+  color: white !important;
+}
+:-ms-input-placeholder { 
+  color: white !important;
+}
+:-moz-placeholder { 
+  color: white !important;
+}
 .cgf-input-container{
 	padding:20px;
 	input{
 		height:50px;	
-		background-color:rgba(255,255,255,0.2);
-		color:white;
-		&::placeholder{
-			color:white;
-		}
+		background-color:rgba(255,255,255,0.1);
+  		color: white !important;
 	}	
 }
 
@@ -78,20 +87,29 @@ body{
 .group-btn{
     color: #fff;
     height:50px;
-    background-color: #5738C8;
+    background-color: rgba(0,0,0,0) !important;
 	display: block;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    border:1px solid white !important;
     &:hover{
-    color:white;
+    	color:white;
+    	background-color: #5738C8 !important;
     }
 }
 
 .home-description{
 	margin:auto;
-	width:80%;
+	width:50%;
 	font-size:18px;
 	font-weight:300;
 }
+
+
+.create-group-form label{
+	color:white !important;
+	font-weight:500;
+}
+
+

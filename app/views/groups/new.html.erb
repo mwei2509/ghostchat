@@ -1,41 +1,59 @@
 <div class="row group-new-section-1">
-<div class="col-md-6">
-	<div class="group-header">
-		<img src="<%= image_url 'ghost-md.png' %>" width="150">
-		<h1>Expiring Group Chat</h1>
-		<p class="home-description">Create a group. Invite friends. Invite co-workers. Solve a problem, share articles. All in your browser.</p>
+	<div class="col-md-6">
+		<div class="group-header">
+			<img src="<%= image_url 'ghost-md.png' %>" width="150">
+			<h1>Expiring Group Chat</h1>
+			<p class="home-description">Create a group for your friends or co-workers in seconds. Solve a problem, share articles and links. All in your browser.</p>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<!-- Padding Inside Div -->
+		<div class="group-new-right-top">
+			<div class="create-group-form">
+				<%= form_for @group do |f| %>
+				
+					<div class="cgf-header">Create a Group</div>
+					
+					<div class="cgf-input-container">
+						<label>Title:</label> 
+						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name Your Group!", class: "form-control" %>
+					</div>
+					
+					<div class="cgf-input-container">
+						<label>Password (optional)</label> <%= f.password_field :password, placeholder: "Add This to Make Your Group Private", :autocomplete => :off, class: "form-control" %>
+					</div>
+
+					<%= f.fields_for :creator do |c| %>
+					
+						<div class="cgf-input-container">
+							<label>Username</label><%= c.text_field :username, placeholder: "Create a Unique Handle", :autocomplete => :off, class: "form-control" %>
+						</div>
+					
+					<% end %>
+					
+					<div class="cgf-input-container">
+						<%= f.submit "Create Group", class: "btn group-btn" %>
+					</div>
+
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div class="col-md-6">
-	<!-- Padding Inside Div -->
-		<div class="group-new-right-top">
-		<div class="create-group-form">
-			<%= form_for @group do |f| %>
-				
-				<div class="cgf-header">Create a Group</div>
-				
-				<div class="cgf-input-container">
-					<label>Title:</label> 
-					<%= f.text_field :title, :autocomplete => :off, placeholder: "Name Your Group!", class: "form-control" %>
-				</div>
-				
-				<div class="cgf-input-container">
-					Password (optional): <%= f.password_field :password, placeholder: "Password(optional)", :autocomplete => :off, class: "form-control" %>
-				</div>
-
-				<%= f.fields_for :creator do |c| %>
-				
-					<div class="cgf-input-container">
-						Username: <%= c.text_field :username, placeholder: "Create a Unique Handle", :autocomplete => :off, class: "form-control" %>
-					</div>
-				
-				<% end %>
-				
-				<div class="cgf-input-container">
-					<%= f.submit "Create Group", class: "btn group-btn" %>
-				</div>
-			<% end %>
-		</div>
+<div class="row group-new-section-2">
+	
+	<div class="col-md-4">
+		
 	</div>
+	
+	<div class="col-md-4">
+		
+	</div>
+	
+	<div class="col-md-4">
+		
+	</div>	
+
 </div>
