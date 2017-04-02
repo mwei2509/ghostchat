@@ -9,7 +9,9 @@ class GroupsController < ApplicationController
 
   def create
     @group=Group.new(group_params)
+    byebug
     if @group.save
+      byebug
       respond_to do |format|
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
       end
@@ -56,6 +58,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:title, :password, :expiration)
+    params.require(:group).permit(:title, :password, :expires_in)
   end
 end

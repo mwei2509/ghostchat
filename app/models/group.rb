@@ -1,4 +1,5 @@
 class Group < ApplicationRecord
+  attr_accessor :expires_in
   has_secure_password validations: false
 
   has_many :users, dependent: :destroy
@@ -13,7 +14,7 @@ class Group < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 
   before_validation :sanitize, :slugify
-  before_create :default_expiration
+  before_create :set_expiration
 
   def to_param
     self.slug
@@ -35,8 +36,8 @@ class Group < ApplicationRecord
   #   end
   # end
 
-  def default_expiration
-    self.expiration = Time.now + 60.minutes
+  def set_expiration
+    self.expiration = Time.now + self.expires_in.to_i.minutes
   end
 
 end

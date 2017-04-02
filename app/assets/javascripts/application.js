@@ -23,7 +23,11 @@ $(()=>{
   //create new group form
   $(document).on('submit','#new_group', function(e){
     e.preventDefault()
+    let getVal = $(".active").data("id")
+    $("#group_expires_in").val(getVal)
+
     let groupData=$(this).serialize()
+
     let url = '/'
     $.post(url,groupData)
       .then((data)=>{
@@ -58,7 +62,7 @@ $(()=>{
 //start MUH SLIDER
 $(function() {
   $("#year-slider .slider").noUiSlider({
-    start: 2,
+    start: 1,
     step: 1,
     connect: "lower",
     range: {
