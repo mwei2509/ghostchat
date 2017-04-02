@@ -22,7 +22,7 @@ $(document).ready(function(){
 
   // create new group form
   $(document).on('submit','#new_group', function(e){
-    e.preventDefault()
+    // e.preventDefault()
     // let getVal = $(".active").data("id")
     // $("#group_expires_in").val=getVal
 
