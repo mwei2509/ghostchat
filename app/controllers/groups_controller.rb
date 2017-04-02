@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     @group=Group.new(group_params)
     byebug
     if @group.save
-      byebug
+
       respond_to do |format|
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
       end
