@@ -23,7 +23,7 @@ $(document).ready(function(){
   // create new group form
   $(document).on('submit','#new_group', function(e){
     e.preventDefault()
-    // var getVal = $(".active").data("id")
+    var getVal = $(".active").data("id")
     $("#group_expires_in").val(getVal)
 
     var groupData=$(this).serialize()
@@ -42,7 +42,7 @@ $(document).ready(function(){
   // create new user form
   $(document).on('submit','#new_user', function(e){
     e.preventDefault()
-    // var slug= $(this).data("slug")
+    var slug= $(this).data("slug")
     var userData=$(this).serialize()
     var url="/" + slug + "/users"
     $.post(url,userData)
