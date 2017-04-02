@@ -14,9 +14,5 @@
     <% end %>
 
     <%= yield %>
-
-    <% Group.all.each do |g| %>
-      <%= g.title %>, <%= g.password_digest %><br />
-    <% end %>
   </body>
 </html>
