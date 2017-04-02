@@ -2,56 +2,36 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.creator = User.new
+    respond_to do |format|
+      format.html {render :new, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
+    end
   end
 
   def create
     @group=Group.new(group_params)
     if @group.save
-      session["group_#{@group.id}_user_id"]=@group.creator.id
-      redirect_to @group
+      respond_to do |format|
+        format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
+      end
     else
-      flash[:error]=@group.errors.full_messages[0]
-      @group=Group.new
-      @group.creator=User.new
-      render :new
+      render plain: "done goofed", status: 400
     end
+  end
+
+  def makeusers
   end
 
   def show
     @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
-    if Time.strptime(@group.expiration.to_s, '%s') < Time.now && current_user(@group) != @group.creator
+    if Time.strptime(@group.expiration.to_s, '%s') < Time.now
       render plain: "expired"
     elsif !logged_in?(@group)
-      redirect_to new_group_user_path(@group)
+      respond_to do |format|
+        format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
+      end
     end
   end
-
-  #
-  # def protected?
-  #   if @group.password_digest && !logged_in?(@group)
-  #     respond_to do |format|
-  #       format.html {render :authenticate, layout: false}
-  #     end
-  #   end
-  # end
-  #
-  # def exists?
-  #   @group=Group.includes(:messages).find_by(slug: params[:slug])
-  #   if !@group
-  #     redirect_to new_group_path
-  #   end
-  # end
-  #
-  # def authenticate
-  #   @group = Group.find_by(slug: params[:group_slug])
-  #   if @group && @group.authenticate(group_params[:password])
-  #     redirect_to new_group_user_path(@group)
-  #   else
-  #     render plain: "bad password"
-  #   end
-  # end
 
   def edit
     @group = Group.find_by(slug: params[:slug])
@@ -76,7 +56,6 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:title, :password, :expiration,
-      creator_attributes: [:username, :password, :is_creator])
+    params.require(:group).permit(:title, :password, :expiration)
   end
 end

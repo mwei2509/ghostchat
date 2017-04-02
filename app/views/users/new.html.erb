@@ -1,5 +1,5 @@
 <h1><%= @group.title %></h1>
-<%= form_for [@group,@user] do |f| %>
+<%= form_for [@group,@user], data:{slug:@group.slug} do |f| %>
   <% if @group.password_digest %>
   Enter Password: <%= f.password_field :group_password %><br />
   <% end %>
