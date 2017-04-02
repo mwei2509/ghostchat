@@ -78,7 +78,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
+production: 
   <<: *default
   database: ghostchat_production
   username: ghostchat
