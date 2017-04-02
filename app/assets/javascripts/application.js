@@ -30,10 +30,10 @@ $(document).ready(function(){
 
     let url = '/'
     $.post(url,groupData)
-      .then((data)=>{
+      .then(function(data){
         $('.group-new-right-top').html(data)
       })
-      .catch((error)=>{
+      .catch(function(error){
         $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
         $('#create-group').prop("disabled",false)
       })
@@ -46,10 +46,10 @@ $(document).ready(function(){
     let userData=$(this).serialize()
     let url="/" + slug + "/users"
     $.post(url,userData)
-      .then((data)=>{
+      .then(function(data){
         $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
       })
-      .catch((error)=>{
+      .catch(function(error){
         $('.group-new-right-top').append('<h1>fucked up</h1>')
         $('#create-user').prop("disabled",false)
       })
