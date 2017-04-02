@@ -22,7 +22,7 @@ $(document).ready(function(){
 
   // create new group form
   $(document).on('submit','#new_group', function(e){
-    // e.preventDefault()
+    e.preventDefault()
     // let getVal = $(".active").data("id")
     // $("#group_expires_in").val=getVal
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
     // let url = '/'
     $.post(url,groupData)
       .then(function(data){
-        // $('.group-new-right-top').html(data)
+        $('.group-new-right-top').html(data)
       })
       .catch(function(error){
         // $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
@@ -41,13 +41,13 @@ $(document).ready(function(){
 
   // create new user form
   $(document).on('submit','#new_user', function(e){
-    // e.preventDefault()
+    e.preventDefault()
     // let slug=$(this).data("slug")
     // let userData=$(this).serialize()
     // let url="/" + slug + "/users"
     $.post(url,userData)
       .then(function(data){
-        // $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
+        $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
       })
       .catch(function(error){
         // $('.group-new-right-top').append('<h1>fucked up</h1>')
