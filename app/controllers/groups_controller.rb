@@ -9,7 +9,6 @@ class GroupsController < ApplicationController
 
   def create
     @group=Group.new(group_params)
-    byebug
     if @group.save
 
       respond_to do |format|
