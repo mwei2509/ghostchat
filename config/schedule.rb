@@ -1,3 +1,4 @@
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -19,6 +20,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.minutes do
-  rake 'Group:'
+every 1.minutes do
+  runner "Group.check_expired"
 end

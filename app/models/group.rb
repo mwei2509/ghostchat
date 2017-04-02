@@ -40,4 +40,13 @@ class Group < ApplicationRecord
     self.expiration = Time.now + self.expires_in.to_i.minutes
   end
 
+  def self.check_expired
+    groups = Group.all 
+    groups.each do |g|
+      if Time.strptime(g.expiration.to_s, '%s') < Time.now
+        g.destroy
+      end
+    end
+  end
+
 end
