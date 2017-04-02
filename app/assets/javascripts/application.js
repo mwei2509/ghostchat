@@ -18,7 +18,7 @@
 //= require_tree .
 //= require cable
 
-$(()=>{
+$(document).ready(function(){
 
   //create new group form
   // $(document).on('submit','#new_group', function(e){
