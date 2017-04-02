@@ -13,7 +13,7 @@
 //= require jquery3
 //= require bootstrap-sprockets
 //= require jquery_ujs
-// require jquery-ui
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 //= require cable
@@ -23,8 +23,8 @@ $(document).ready(function(){
   // create new group form
   $(document).on('submit','#new_group', function(e){
     e.preventDefault()
-    let getVal = $(".active").data("id")
-    $("#group_expires_in").val(getVal)
+    // let getVal = $(".active").data("id")
+    // $("#group_expires_in").val=getVal
 
     let groupData=$(this).serialize()
 
