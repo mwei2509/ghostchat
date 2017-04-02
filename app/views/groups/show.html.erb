@@ -1,0 +1,17 @@
+<%= @group.title %>
+<%= @group.creator.username %>
+current_user <%= current_user(@group).username %>
+
+<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
+  <%= render @group.messages %>
+</div>
+
+
+<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+<% end %>
