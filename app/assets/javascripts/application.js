@@ -26,7 +26,7 @@ $(document).ready(function(){
     // let getVal = $(".active").data("id")
     // $("#group_expires_in").val=getVal
 
-    let groupData=$(this).serialize()
+    // let groupData=$(this).serialize()
 
     let url = '/'
     $.post(url,groupData)
