@@ -12,22 +12,17 @@
 		<!-- Padding Inside Div -->
 		<div class="group-new-right-top">
 			<div class="create-group-form">
-        <%= form_for @group do |f| %>
 
 				<%= form_for @group do |f| %>
-				
+
 					<div class="cgf-header">Create a Group</div>
-					
+
 					<div class="cgf-input-container">
-						<label>Title:</label> 
-<<<<<<< HEAD
+						<label>Title:</label>
 						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name your group!", class: "form-control" %>
-=======
-            
-						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name Your Group!", class: "form-control" %>
->>>>>>> 6a60850e917ebbdbae328c3358f381d463fda530
+
 					</div>
-					
+
 					<div class="cgf-input-container">
 						<label>Password (optional)</label> <%= f.password_field :password, placeholder: "Make it private if you want", :autocomplete => :off, class: "form-control" %>
 					</div>
@@ -37,11 +32,11 @@
 						<div class="cgf-input-container">
 							<label>Username</label><%= c.text_field :username, placeholder: "Create a Unique Handle", :autocomplete => :off, class: "form-control" %>
               <label>Password (required)</label><%= c.password_field :password, placeholder: "PASSWORD", :autocomplete => :off, class: "form-control" %>
-              <%= c.hidden_field :is_creator, value: true %>		
+              <%= c.hidden_field :is_creator, value: true %>
         </div>
-					
+
 					<% end %>
-					
+
 					<div class="cgf-input-container">
 						<%= f.submit "Create Group", class: "btn group-btn" %>
 					</div>
@@ -53,17 +48,17 @@
 </div>
 
 <div class="row group-new-section-2">
-	
+
 	<div class="col-md-4">
-		
+
 	</div>
-	
+
 	<div class="col-md-4">
-		
+
 	</div>
-	
+
 	<div class="col-md-4">
-		
-	</div>	
+
+	</div>
 
 </div>

@@ -22,10 +22,10 @@ body{
 }
 .group-new-section-1{
   background: #30168E;
-  background: -webkit-linear-gradient(left top, #30168E, #724FEF); 
+  background: -webkit-linear-gradient(left top, #30168E, #724FEF);
   background: -o-linear-gradient(bottom right, #30168E, #724FEF);
   background: -moz-linear-gradient(bottom right, #30168E, #724FEF);
-  background: linear-gradient(to bottom right, #30168E, #724FEF); 	
+  background: linear-gradient(to bottom right, #30168E, #724FEF);
 }
 .group-new-right-top{
 	padding:20px;
@@ -36,7 +36,7 @@ body{
 	background:none;
 }
 .create-group-form{
-	border: 1px solid #DDDDDD;	
+	border: 1px solid #DDDDDD;
 	border-radius:3px;
 	margin-bottom:10px;
 }
@@ -54,22 +54,22 @@ body{
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white !important;
 }
-::-moz-placeholder { 
+::-moz-placeholder {
   color: white !important;
 }
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
   color: white !important;
 }
-:-moz-placeholder { 
+:-moz-placeholder {
   color: white !important;
 }
 .cgf-input-container{
 	padding:20px;
 	input{
-		height:50px;	
+		height:50px;
 		background-color:rgba(255,255,255,0.1);
   		color: white !important;
-	}	
+	}
 }
 
 .group-btn{
@@ -112,7 +112,10 @@ body{
 	font-weight:500;
 }
 
-
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
 }
