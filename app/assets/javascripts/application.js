@@ -34,7 +34,7 @@ $(document).ready(function(){
         $('.group-new-right-top').html(data)
       })
       .catch(function(error){
-        // $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
+        $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
         $('#create-group').prop("disabled",false)
       })
   })
