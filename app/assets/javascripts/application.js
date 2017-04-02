@@ -78,7 +78,7 @@ $(document).ready(function(){
 //start MUH SLIDER
 $(function() {
   $("#year-slider .slider").noUiSlider({
-    start: 1,
+    start: 0,
     step: 1,
     connect: "lower",
     range: {
