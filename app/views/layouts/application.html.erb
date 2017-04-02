@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+    <% end %>
+
     <%= yield %>
+
+    <% Group.all.each do |g| %>
+      <%= g.title %>, <%= g.password_digest %><br />
+    <% end %>
   </body>
 </html>

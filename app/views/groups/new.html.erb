@@ -1,3 +1,4 @@
+
 <div class="row group-new-section-1">
 	<div class="col-md-6">
 		<div class="group-header">
@@ -11,12 +12,15 @@
 		<!-- Padding Inside Div -->
 		<div class="group-new-right-top">
 			<div class="create-group-form">
+        <%= form_for @group do |f| %>
+
 				<%= form_for @group do |f| %>
 				
 					<div class="cgf-header">Create a Group</div>
 					
 					<div class="cgf-input-container">
 						<label>Title:</label> 
+            
 						<%= f.text_field :title, :autocomplete => :off, placeholder: "Name Your Group!", class: "form-control" %>
 					</div>
 					
@@ -25,10 +29,12 @@
 					</div>
 
 					<%= f.fields_for :creator do |c| %>
-					
+
 						<div class="cgf-input-container">
 							<label>Username</label><%= c.text_field :username, placeholder: "Create a Unique Handle", :autocomplete => :off, class: "form-control" %>
-						</div>
+              <label>Password (required)</label><%= c.password_field :password, placeholder: "PASSWORD", :autocomplete => :off, class: "form-control" %>
+              <%= c.hidden_field :is_creator, value: true %>		
+        </div>
 					
 					<% end %>
 					
