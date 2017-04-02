@@ -16,3 +16,37 @@
 //= require turbolinks
 //= require_tree .
 //= require cable
+
+$(()=>{
+
+  //create new group form
+  $(document).on('submit','#new_group', function(e){
+    e.preventDefault()
+    let groupData=$(this).serialize()
+    let url = '/'
+    $.post(url,groupData)
+      .then((data)=>{
+        $('.group-new-right-top').html(data)
+      })
+      .catch((error)=>{
+        $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
+        $('#create-group').prop("disabled",false)
+      })
+  })
+
+  //create new user form
+  $(document).on('submit','#new_user', function(e){
+    e.preventDefault()
+    let slug=$(this).data("slug")
+    let userData=$(this).serialize()
+    let url="/" + slug + "/users"
+    $.post(url,userData)
+      .then((data)=>{
+        $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
+      })
+      .catch((error)=>{
+        $('.group-new-right-top').append('<h1>fucked up</h1>')
+        $('#create-user').prop("disabled",false)
+      })
+  })
+})
