@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  patch '/:group_slug/authenticate', to: 'groups#authenticate', as: "authenticate"
+
   resources :groups, param: :slug, only: [:new, :create, :show, :edit, :update, :destroy], path: '/' do
     resources :users, only: [:new, :create]
   end

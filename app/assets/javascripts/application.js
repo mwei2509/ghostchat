@@ -39,21 +39,37 @@ $(document).ready(function(){
       })
   })
 
+  // //enter password for group
+  // $(document).on('submit','.edit_group', function(e){
+  //   e.preventDefault()
+  //   var passData=$(this).serialize()
+  //   var slug= $(this).data("slug")
+  //   var url = '/' + slug + '/authenticate'
+  //   $.post(url,passData)
+  //     .then(function(data){
+  //       $('.group-new-right-top').html(data)
+  //     })
+  //     .catch(function(error){
+  //       $('.group-new-right-top').append('<h1 style="color: #fff;">' + error["responseText"] + '</h1>')
+  //       $('#enter-password').prop("disabled",false)
+  //     })
+  // })
+
   // create new user form
-  $(document).on('submit','#new_user', function(e){
-    e.preventDefault()
-    var slug= $(this).data("slug")
-    var userData=$(this).serialize()
-    var url="/" + slug + "/users"
-    $.post(url,userData)
-      .then(function(data){
-        $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
-      })
-      .catch(function(error){
-        $('.group-new-right-top').append('<h1>fucked up</h1>')
-        $('#create-user').prop("disabled",false)
-      })
-  })
+  // $(document).on('submit','#new_user', function(e){
+  //   e.preventDefault()
+  //   var slug= $(this).data("slug")
+  //   var userData=$(this).serialize()
+  //   var url="/" + slug + "/users"
+  //   $.post(url,userData)
+  //     .then(function(data){
+  //       $('.group-new-right-top').html('<h1>DAMN GURL</h1>')
+  //     })
+  //     .catch(function(error){
+  //       $('.group-new-right-top').append('<h1>fucked up</h1>')
+  //       $('#create-user').prop("disabled",false)
+  //     })
+  // })
 })
 
 //end form submit stuff
@@ -766,4 +782,4 @@ $.fn.noUiSlider - WTFPL - refreshless.com/nouislider/ */
     return (b ? X : W).call(this,
       a)
   }
-})(window.jQuery || window.Zepto);	
+})(window.jQuery || window.Zepto);

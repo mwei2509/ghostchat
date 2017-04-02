@@ -12,9 +12,8 @@ class UsersController < ApplicationController
       session["group_#{@group.id}_user_id"]=@user.id
       redirect_to @group
     else
-      respond_to do |format|
-        format.html {render 'groups/makesers', locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
-      end
+      flash[:error]=@user.errors.full_messages[0]
+      render 'groups/makeusers', locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'
     end
   end
 

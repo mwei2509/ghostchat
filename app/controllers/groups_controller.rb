@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-
+  before_action :set_group, only: [:show, :edit, :update, :destroy]
   def new
     @group = Group.new
     respond_to do |format|
@@ -10,7 +10,6 @@ class GroupsController < ApplicationController
   def create
     @group=Group.new(group_params)
     if @group.save
-
       respond_to do |format|
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
       end
@@ -23,23 +22,25 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
     if Time.strptime(@group.expiration.to_s, '%s') < Time.now
       render plain: "expired"
     elsif !logged_in?(@group)
-      respond_to do |format|
-        format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
+      if @group.password_digest
+        render :password, locals: {group: @group}, :layout=>'layouts/formlayouts'
+      else
+        render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'
       end
     end
   end
 
+  def password
+  end
+
   def edit
-    @group = Group.find_by(slug: params[:slug])
   end
 
   def update
-    @group = Group.find_by(slug: params[:slug])
     @group.set_expiration(group_params[:expiration])
     if @group.save
       redirect_to @group
@@ -50,11 +51,24 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find_by(slug: params[:slug])
     @group.destroy
   end
 
+  def authenticate
+    @group = Group.find_by(slug: params[:group_slug])
+    if @group && @group.authenticate(group_params[:password])
+      render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'
+    else
+      flash[:error]="Wrong Password"
+      render :password, locals: {group: @group}, :layout=>'layouts/formlayouts'
+    end
+  end
   private
+
+
+  def set_group
+    @group = Group.includes(:messages).find_by(slug: params[:slug])
+  end
 
   def group_params
     params.require(:group).permit(:title, :password, :expires_in)
