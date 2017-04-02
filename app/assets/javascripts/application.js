@@ -31,11 +31,11 @@ $(()=>{
     let url = '/'
     $.post(url,groupData)
       .then((data)=>{
-        $('.group-new-right-top').html(data)
+        // $('.group-new-right-top').html(data)
       })
       .catch((error)=>{
-        $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
-        $('#create-group').prop("disabled",false)
+        // $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
+        // $('#create-group').prop("disabled",false)
       })
   })
 
