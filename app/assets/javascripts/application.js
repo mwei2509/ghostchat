@@ -21,23 +21,23 @@
 $(()=>{
 
   //create new group form
-  $(document).on('submit','#new_group', function(e){
-    e.preventDefault()
-    // let getVal = $(".active").data("id")
-    // $("#group_expires_in").val(getVal)
+  // $(document).on('submit','#new_group', function(e){
+  //   e.preventDefault()
+  //   // let getVal = $(".active").data("id")
+  //   // $("#group_expires_in").val(getVal)
 
-    let groupData=$(this).serialize()
+  //   let groupData=$(this).serialize()
 
-    let url = '/'
-    $.post(url,groupData)
-      .then((data)=>{
-        // $('.group-new-right-top').html(data)
-      })
-      .catch((error)=>{
-        // $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
-        // $('#create-group').prop("disabled",false)
-      })
-  })
+  //   let url = '/'
+  //   $.post(url,groupData)
+  //     .then((data)=>{
+  //       // $('.group-new-right-top').html(data)
+  //     })
+  //     .catch((error)=>{
+  //       // $('.group-new-right-top').append(`<h1 style="color: #fff;">${error["responseText"]}</h1>`)
+  //       // $('#create-group').prop("disabled",false)
+  //     })
+  // })
 
   //create new user form
   // $(document).on('submit','#new_user', function(e){
