@@ -15,3 +15,83 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
+
+body{
+	font-family:"Montserrat"
+}
+.group-new-section-1{
+  background: #30168E;
+  background: -webkit-linear-gradient(left top, #30168E, #724FEF); 
+  background: -o-linear-gradient(bottom right, #30168E, #724FEF);
+  background: -moz-linear-gradient(bottom right, #30168E, #724FEF);
+  background: linear-gradient(to bottom right, #30168E, #724FEF); 	
+}
+.group-new-right-top{
+	padding:20px;
+	margin:auto;
+	width:85%;
+}
+.new_group{
+	background:none;
+}
+.create-group-form{
+	border: 1px solid #DDDDDD;	
+	border-radius:3px;
+	margin-bottom:10px;
+}
+
+.cgf-header{
+	/*background:#F5F5F5;*/
+	color:white;
+	font-size:24px;
+	background:rgba(255,255,255,0.1);
+	text-align:center;
+	border-bottom:1px solid #DDDDDD;
+	padding:20px;
+}
+
+.cgf-input-container{
+	padding:20px;
+	input{
+		height:50px;	
+		background-color:rgba(255,255,255,0.2);
+		color:white;
+		&::placeholder{
+			color:white;
+		}
+	}	
+}
+
+.group-btn{
+	width:100%;
+}
+
+.group-header{
+	font-size:24px;
+	text-align:center;
+	padding:20px;
+	margin-top:50px;
+	color:white;
+}
+
+.group-btn{
+    color: #fff;
+    height:50px;
+    background-color: #5738C8;
+	display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover{
+    color:white;
+    }
+}
+
+.home-description{
+	margin:auto;
+	width:80%;
+	font-size:18px;
+	font-weight:300;
+}
