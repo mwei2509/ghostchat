@@ -1,9 +1,9 @@
-development:
+development: 
   adapter: async
 
 test:
   adapter: async
 
-production:
+production: 
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p4fc271270da6f696d94e8379bc1bbf0b8a8812dae6ce2a9b95d0998fb701fb4a@ec2-34-206-56-227.compute-1.amazonaws.com:35959
