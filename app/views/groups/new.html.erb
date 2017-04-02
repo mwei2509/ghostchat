@@ -1,7 +1,6 @@
 <%= form_for @group do |f| %>
 Title: <%= f.text_field :title %>
 Password (optional): <%= f.password_field :password %>
-Expires in <%= f.number_field :expiration %> hours
 <%= f.fields_for :creator do |c| %>
 Username: <%= c.text_field :username %>
 <% end %>

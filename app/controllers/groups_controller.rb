@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+
+
   def new
     @group = Group.new
     @group.creator = User.new
@@ -19,8 +21,12 @@ class GroupsController < ApplicationController
   def show
     @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
-    if !logged_in?(@group)
+    
+    if Time.strptime(@group.expiration.to_s, '%s') < Time.now && current_user(@group) != @group.creator
+      render plain: "expired"
+    elsif !logged_in?(@group)
       redirect_to new_group_user_path(@group)
+      
     end
   end
 
@@ -30,7 +36,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find_by(slug: params[:slug])
-    @group.update(group_params)
+    @group.set_expiration(group_params[:expiration])
     if @group.save
       redirect_to @group
     else
@@ -44,6 +50,8 @@ class GroupsController < ApplicationController
   end
 
   private
+   
+
   def group_params
     params.require(:group).permit(:title, :password, :expiration,
       creator_attributes: [:username])
