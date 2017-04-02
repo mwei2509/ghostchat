@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
 
-
   def new
     @group = Group.new
     @group.creator = User.new
@@ -12,6 +11,7 @@ class GroupsController < ApplicationController
       session["group_#{@group.id}_user_id"]=@group.creator.id
       redirect_to @group
     else
+      flash[:error]=@group.errors.full_messages[0]
       @group=Group.new
       @group.creator=User.new
       render :new
@@ -21,14 +21,37 @@ class GroupsController < ApplicationController
   def show
     @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
-    
     if Time.strptime(@group.expiration.to_s, '%s') < Time.now && current_user(@group) != @group.creator
       render plain: "expired"
     elsif !logged_in?(@group)
       redirect_to new_group_user_path(@group)
-      
     end
   end
+
+  #
+  # def protected?
+  #   if @group.password_digest && !logged_in?(@group)
+  #     respond_to do |format|
+  #       format.html {render :authenticate, layout: false}
+  #     end
+  #   end
+  # end
+  #
+  # def exists?
+  #   @group=Group.includes(:messages).find_by(slug: params[:slug])
+  #   if !@group
+  #     redirect_to new_group_path
+  #   end
+  # end
+  #
+  # def authenticate
+  #   @group = Group.find_by(slug: params[:group_slug])
+  #   if @group && @group.authenticate(group_params[:password])
+  #     redirect_to new_group_user_path(@group)
+  #   else
+  #     render plain: "bad password"
+  #   end
+  # end
 
   def edit
     @group = Group.find_by(slug: params[:slug])
@@ -40,7 +63,8 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to @group
     else
-      render :edit
+      flash[:error]=@group.errors.full_messages[0]
+      redirect_to @group
     end
   end
 
@@ -50,10 +74,9 @@ class GroupsController < ApplicationController
   end
 
   private
-   
 
   def group_params
     params.require(:group).permit(:title, :password, :expiration,
-      creator_attributes: [:username])
+      creator_attributes: [:username, :password, :is_creator])
   end
 end

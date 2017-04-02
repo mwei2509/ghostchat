@@ -1,12 +1,17 @@
 class Group < ApplicationRecord
-  has_secure_password
+  has_secure_password validations: false
 
   has_many :users, dependent: :destroy
   has_one :creator, class_name: "User", dependent: :destroy
 
   accepts_nested_attributes_for :creator
+  accepts_nested_attributes_for :users
+  validates_associated :creator, on: :create
 
   has_many :messages, dependent: :destroy
+
+  validates :title, presence: true, uniqueness: true
+
   before_validation :sanitize, :slugify
   before_create :default_expiration
 

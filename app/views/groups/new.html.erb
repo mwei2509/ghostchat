@@ -3,6 +3,8 @@ Title: <%= f.text_field :title %>
 Password (optional): <%= f.password_field :password %>
 <%= f.fields_for :creator do |c| %>
 Username: <%= c.text_field :username %>
+Password (required): <%= c.password_field :password %>
+<%= c.hidden_field :is_creator, value: true %>
 <% end %>
 <%= f.submit %>
 <% end %>
