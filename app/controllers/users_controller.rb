@@ -13,12 +13,12 @@ class UsersController < ApplicationController
     end
     if !user_params[:password].empty? && authenticate
       #validate creator
-      @creator=User.find_by(username: user_params[:username])
+      @creator=User.find_by(username: user_params[:username], group_id: @group.id)
       if @creator && @creator.authenticate(user_params[:password])
         session["group_#{@group.id}_user_id"]=@creator.id
         redirect_to @group
       else
-        flash[:error]=@creator.errors.full_messages[0]
+        flash[:error]="bad authentication"
         @user=User.new
         render :new
       end

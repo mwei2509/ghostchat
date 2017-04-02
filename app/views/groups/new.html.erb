@@ -31,9 +31,12 @@
 
 						<div class="cgf-input-container">
 							<label>Username</label><%= c.text_field :username, placeholder: "Create a Unique Handle", :autocomplete => :off, class: "form-control" %>
+            </div>
+
+            <div class="cgf-input-container">
               <label>Password (required)</label><%= c.password_field :password, placeholder: "PASSWORD", :autocomplete => :off, class: "form-control" %>
               <%= c.hidden_field :is_creator, value: true %>
-        </div>
+            </div>
 
 					<% end %>
 
