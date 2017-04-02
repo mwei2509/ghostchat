@@ -1,13 +1,6 @@
-<%= @group.title %>
+<h1><%= @group.title %></h1>
 <%= current_user(@group).username %><br>
-<% if Time.strptime(@group.expiration.to_s, '%s') < Time.now %>
-your shit's expired
-	<%= form_for @group do |f| %>
-		Extend by <%= f.number_field :expiration, value: "" %> minutes
-		<%= f.submit %>
-	<% end %>
-<% end %>
-
+Your group will expire in <span id="expiresin"><%= ((Time.strptime(@group.expiration.to_s, '%s')-Time.now)/60).round %></span> minutes
 <div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
   <%= render @group.messages %>
 </div>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @group=Group.find_by(slug: params[:group_slug])
     @user=User.new
