@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:authenticate, :edit, :update, :destroy]
   def new
     @group = Group.new
     respond_to do |format|
@@ -22,6 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
     if Time.strptime(@group.expiration.to_s, '%s') < Time.now
       render plain: "expired"
@@ -55,7 +56,6 @@ class GroupsController < ApplicationController
   end
 
   def authenticate
-    @group = Group.find_by(slug: params[:group_slug])
     if @group && @group.authenticate(group_params[:password])
       render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'
     else
@@ -65,9 +65,12 @@ class GroupsController < ApplicationController
   end
   private
 
-
   def set_group
-    @group = Group.includes(:messages).find_by(slug: params[:slug])
+    if params[:group_slug]
+      @group=Group.find_by(slug: params[:group_slug])
+    else
+      @group = Group.find_by(slug: params[:slug])
+    end
   end
 
   def group_params
