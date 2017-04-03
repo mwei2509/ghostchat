@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # has_secure_password validations: false
   # validates :password, presence: true, :if => :is_creator?
-  validates :username, uniqueness: {scope: :group}
+  validates :username, uniqueness: {scope: :group, case_sensitive: false}
 
   # private
   # def is_creator?
