@@ -1,16 +1,18 @@
-<h1><%= @group.title %></h1>
-<%= current_user(@group).username %><br>
-Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes
-<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
-  <%= render @group.messages %>
+<div class="col-md-3">
+	<h1><%= @group.title %></h1>
+	<%= current_user(@group).username %><br>
+	Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes
+	<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
+	  <%= render @group.messages %>
+	</div>
 </div>
+<div class="col-md-9">
+	<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+	  <div class="form-group">
+	    <%= f.label :body %>
+	    <%= f.text_area :body, class: 'form-control' %>
+	  </div>
 
-
-<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
-  </div>
-
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-<% end %>
+	  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+	<% end %>
+</div>
