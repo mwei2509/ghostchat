@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     respond_to do |format|
-      # format.html {render :new, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
+       format.html {render :new, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'}
     end
   end
 
