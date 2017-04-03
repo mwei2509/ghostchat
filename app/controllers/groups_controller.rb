@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:authenticate, :edit, :update, :destroy]
+  before_action :set_group, :check_exists, only: [:authenticate, :show, :edit, :update, :destroy]
   def new
     @group = Group.new
     respond_to do |format|
@@ -14,7 +14,8 @@ class GroupsController < ApplicationController
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
       end
     else
-      render plain: "done goofed", status: 400
+      flash[:error]=@group.errors.full_messages[0]
+      render json: flash.to_hash, status: 400
     end
   end
 
@@ -75,6 +76,13 @@ class GroupsController < ApplicationController
       @group=Group.find_by(slug: params[:group_slug])
     else
       @group = Group.find_by(slug: params[:slug])
+    end
+  end
+
+  def check_exists
+    if @group.nil?
+      flash[:error] = "This group does not exist or has expired.  Please create a new group"
+      redirect_to new_group_path
     end
   end
 
