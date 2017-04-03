@@ -1,5 +1,5 @@
-<div class="message-box" data-id="<%= message.user.id %>" id="message-box">
-  <%= message.user.username %>: <%= message.body %><br />
+
+<div id="message-box" data-id="<%= message.user.id %>" class="message-box message-outer-wrap"><span class="message-username royal">@<%= message.user.username %>:</span> <span class="message-content"><%= message.body %></span><br />
 </div>
 
 <script>

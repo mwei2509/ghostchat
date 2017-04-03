@@ -23,7 +23,7 @@
 		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">
 		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
 		    <div class="post-content">
-		        <h3 class="guest-name"><%= g.username %></h3>
+		        <h3 class="guest-name"><%= truncate(g.username, :length=>14) %></h3>
 		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
 		</div>
 	<% end%>
@@ -36,13 +36,14 @@
 			<div class="msg-content">
 				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
 				  <%= render @group.messages %>
+					<span id="userid" style="display:none;"><%= current_user(@group).id %></span>
 				</div>
 			</div>
 		</div>
 		<div>
 			<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-			  <div class="form-group">
-			    <%= f.label :body %>
+			  <div class="form-group text-area-wrap">
+
 			    <%= f.text_area :body, class: 'form-control' %>
 			  </div>
 

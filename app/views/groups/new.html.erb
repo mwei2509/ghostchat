@@ -5,7 +5,7 @@
 		<div class="cgf-header">Create a Group</div>
 
 		<div class="cgf-input-container">
-			<label>Title:</label>
+			<label>Title (Optional)</label>
 			<%= f.text_field :title, :autocomplete => :off, placeholder: "Name your group", class: "form-control" %>
 		</div>
 
@@ -27,7 +27,7 @@
 
 		<%= f.hidden_field :expires_in, value: 60 %>
 		<div class="cgf-input-container">
-			<label>Group Password (optional)</label> <%= f.password_field :password, placeholder: "Make it private if you want", :autocomplete => :off, class: "form-control" %>
+			<label>Group Password (Optional)</label> <%= f.password_field :password, placeholder: "Make it private if you want", :autocomplete => :off, class: "form-control" %>
 		</div>
 
 		<div class="cgf-input-container">
