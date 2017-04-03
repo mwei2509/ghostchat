@@ -12,6 +12,7 @@ class Group < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
+  validates :expires_in, numericality: {:greater_than => 0, :less_than_or_equal_to => 1440}
 
   before_validation :sanitize, :slugify
   before_create :set_expiration
