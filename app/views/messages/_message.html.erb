@@ -1,1 +1,1 @@
-<div class="message-outer-wrap"><span class="message-username <%= message.user == current_user(message.group) ? 'royal' : 'message-guest' %>">@<%= message.user.username %>:</span> <span class="message-content"><%= message.body %></span><br /></div>
+<div id="message-box" data-id="<%= message.user.id %>" class="message-outer-wrap"><span class="message-username <%= message.user == current_user(message.group) ? 'royal' : 'message-guest' %>">@<%= message.user.username %>:</span> <span class="message-content"><%= message.body %></span><br /></div>

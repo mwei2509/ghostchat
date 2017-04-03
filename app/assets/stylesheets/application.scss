@@ -422,14 +422,17 @@ background-color:black;
 }
 
 .top-btn-left{
-  margin-top:20px;
+  margin-top:26px;
   position:relative;
   text-align:center;
   color:white;
-  font-size:30px;  
+  font-size:24px;  
   transiton: ease-in-out 0.2s;
   &:hover{
   color:#3B3E99;
+  }
+  i::before{
+    margin-top:10px;
   }
 }
 
@@ -564,5 +567,11 @@ text-align:center;
 #messages{
   max-height:450px;
   overflow-y:auto;
-  
+  padding-bottom:30px;
+  padding-left:5px;
+
+}
+
+.text-area-wrap{
+
 }
