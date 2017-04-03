@@ -70,12 +70,14 @@ html,body,.group-left, .group-right,.create-group-form{
 	input{
 		height:50px;
 		background-color:rgba(255,255,255,0.1);
-  		color: white !important;
+  		color: white;
 	}
 }
 
 .group-btn{
 	width:100%;
+  color: #311790 !important;  
+  font-size:18px;
 }
 
 .group-header{
@@ -87,17 +89,17 @@ html,body,.group-left, .group-right,.create-group-form{
 }
 
 .group-btn{
-    color: #fff;
+    color: #311790 !important;
     height:50px;
-    background-color: rgba(0,0,0,0) !important;
+    background-color: white !important;
 	display: block;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     border:1px solid white !important;
     &:hover{
-    	color:white;
-    	background-color: #5738C8 !important;
+    color: #311790 !important;
+    background-color: white !important;
     }
 }
 
@@ -110,7 +112,7 @@ html,body,.group-left, .group-right,.create-group-form{
 
 
 .create-group-form label{
-	color:white !important;
+	color:white;
 	font-weight:500;
 }
 
@@ -375,7 +377,7 @@ outline:0;
 
 }
 
-.create-group-form{
+.create-group-form, .group-new-section-1{
   min-height:100%;
   position:relative;
 }
