@@ -31,7 +31,7 @@
 </div>
 
 <div class="col-md-9 group-right">
-	<div>
+	<div class="message-box-main-wrap">
 		<div class="msg-wrapper" style="margin-top:100px;">
 			<div class="msg-content">
 				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
@@ -40,16 +40,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="message-box-main-wrap">
-			<div class="message-box-main-inner">
-				<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-				  <div class="form-group text-area-wrap">
+		<div class="msg-box-wrap">
+			<div class="msg-input-wrap">
+				<div class="message-box-main-inner">
+					<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+					  <div class="form-group text-area-wrap">
 
-				    <%= f.text_area :body, class: 'form-control' %>
-				  </div>
+					    <%= f.text_area :body, class: 'form-control', placeholder:"What's on your mind?" %>
+					  </div>
 
-				  <%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
-				<% end %>
+					  <%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
