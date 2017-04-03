@@ -1,18 +1,32 @@
-<div class="col-md-3">
+<div class="col-md-3 group-left">
 	<h1><%= @group.title %></h1>
 	<%= current_user(@group).username %><br>
 	Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes
-	<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
-	  <%= render @group.messages %>
+</div>
+<div class="col-md-9 group-right">
+	<div>
+		<div class="msg-wrapper"  style="margin-top:100px;"">
+			<div class="msg-content">
+				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
+				  <%= render @group.messages %>
+				</div>
+			</div>
+		</div>
+		<div>
+			<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+			  <div class="form-group">
+			    <%= f.label :body %>
+			    <%= f.text_area :body, class: 'form-control' %>
+			  </div>
+
+			  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+			<% end %>
+		</div>
 	</div>
 </div>
-<div class="col-md-9">
-	<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-	  <div class="form-group">
-	    <%= f.label :body %>
-	    <%= f.text_area :body, class: 'form-control' %>
-	  </div>
 
-	  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-	<% end %>
-</div>
+<script>
+	$(document).ready(function(){
+		$('#msg-content').scrollTop($('#msg-content')[0].scrollHeight);
+	})
+</script>
