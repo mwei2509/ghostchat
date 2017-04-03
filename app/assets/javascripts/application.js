@@ -817,11 +817,11 @@ $(document).ready(function(){
 // change message color
 function newMessageClass(my_user_id){
   var current_user = parseInt(document.getElementById("userid").innerHTML)
-  var poster = parseInt($('#message-box-${my_user_id}').data("id"))
+  var poster = parseInt($('#message-box-' + my_user_id).data("id"))
   console.log(current_user)
   console.log(poster)
   if(current_user === poster){
-    $('.message-box-${my_user_id}').each(function(i, obj) {
+    $('.message-box-' + my_user_id).each(function(i, obj) {
       $(this).addClass('by-current-user')
     });
   }
