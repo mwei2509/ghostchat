@@ -32,7 +32,7 @@
 
 <div class="col-md-9 group-right">
 	<div>
-		<div class="msg-wrapper"  style="margin-top:100px;">
+		<div class="msg-wrapper" style="margin-top:100px;">
 			<div class="msg-content">
 				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
 				  <%= render @group.messages %>
@@ -40,15 +40,17 @@
 				</div>
 			</div>
 		</div>
-		<div>
-			<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-			  <div class="form-group text-area-wrap">
+		<div class="message-box-main-wrap">
+			<div class="message-box-main-inner">
+				<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+				  <div class="form-group text-area-wrap">
 
-			    <%= f.text_area :body, class: 'form-control' %>
-			  </div>
+				    <%= f.text_area :body, class: 'form-control' %>
+				  </div>
 
-			  <%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
-			<% end %>
+				  <%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -406,7 +406,6 @@ outline:0;
 
 
 .msg-wrapper {
-
   vertical-align: bottom;
   height: 400px;
 }
@@ -575,4 +574,17 @@ text-align:center;
 
 .text-area-wrap{
 
+}
+
+
+.message-box-main-wrap{
+  position:absolute !important;
+  width:100%;
+
+}
+
+.message-box-main-inner{
+  position:relative !important;
+  bottom:0 !important;
+  width:90%; 
 }
