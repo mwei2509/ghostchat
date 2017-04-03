@@ -16,7 +16,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
 
 html,body,.group-left, .group-right,.create-group-form{
 	font-family:"Montserrat";
@@ -32,6 +32,7 @@ html,body,.group-left, .group-right,.create-group-form{
 .group-new-right-top{
 	padding:20px;
 	margin:auto;
+  margin-top:50px !important;
 	width:85%;
 }
 .new_group{
@@ -84,7 +85,7 @@ html,body,.group-left, .group-right,.create-group-form{
 	font-size:24px;
 	text-align:center;
 	padding:20px;
-	margin-top:50px;
+	margin-top:70px;
 	color:white;
 }
 
@@ -485,13 +486,13 @@ text-align:center;
 
 .guest-name{
   color:white;
-  font-size:20px;
+  font-size:18px !important;
   font-weight: bold;  
 }
 
 .join-date{
   color:white;
-  font-size:14px;
+  font-size:12px !important;
 }
 
 
@@ -508,7 +509,7 @@ text-align:center;
 @media screen and (min-width:900px){
   .post-content {
     color:white;
-    margin-left: 60%;
+    margin-left: 50%;
   } 
 }
 
@@ -537,3 +538,31 @@ text-align:center;
     color:white;
 }
 /* Image Left Text Right */
+
+.message-username{
+  font-weight:500;
+}
+
+.message-guest{
+  color:#6A737D;
+}
+
+.message-content{
+  font-weight:400;
+}
+
+.royal{
+  font-weight:700;
+  color:#EB4D5C;
+}
+
+.message-outer-wrap{
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+#messages{
+  max-height:450px;
+  overflow-y:auto;
+  
+}

@@ -24,7 +24,7 @@
 		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">                
 		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
 		    <div class="post-content">
-		        <h3 class="guest-name"><%= g.username %></h3>
+		        <h3 class="guest-name"><%= truncate(g.username, :length=>14) %></h3>
 		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
 		</div>
 	<% end%>
