@@ -1,11 +1,10 @@
 <div class="col-md-3 group-left">
-	
 	<div class="row group-left-top">
-		
+		<span id="userid"><%= current_user(@group).id %></span>
 		<div class="col-md-2 top-left">
 			<a class="top-btn-left" href="/"><i class="icon ion-chevron-left"></i></a>
 		</div>
-		
+
 		<div class="col-md-8 top-mid-wrap">
 			<span class="top-middle"><%= truncate(@group.title, :length => 17) %></span>
 		</div>
@@ -21,7 +20,7 @@
 	</div>
 
 	<% @group.users.each do |g| %>
-		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">                
+		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">
 		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
 		    <div class="post-content">
 		        <h3 class="guest-name"><%= truncate(g.username, :length=>14) %></h3>

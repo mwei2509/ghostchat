@@ -40,7 +40,7 @@ $(document).ready(function(){
   })
 
   //countdown?
-  timer=document.getElementById("expiresin")
+  var timer=document.getElementById("expiresin")
   if(timer){
     var time = parseInt(timer.innerHTML);
     var current = 0; // 0 secs
@@ -91,8 +91,8 @@ $(document).ready(function(){
   //       $('#create-user').prop("disabled",false)
   //     })
   // })
-  
-  
+
+
   //start MUH SLIDER
 
   if (document.getElementById("year-slider")){
@@ -813,3 +813,14 @@ $(document).ready(function(){
 
   }
 })
+
+// change message color
+function newMessageClass(){
+  var current_user = parseInt(document.getElementById("userid").innerHTML)
+  var poster = parseInt($('#message-box').data("id"))
+  if(current_user === poster){
+    $('.message-box').each(function(i, obj) {
+      $(this).addClass('by-current-user')
+    });
+  }
+}
