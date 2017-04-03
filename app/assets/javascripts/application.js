@@ -91,12 +91,8 @@ $(document).ready(function(){
   //       $('#create-user').prop("disabled",false)
   //     })
   // })
-
-
-
-
-
-
+  
+  
   //start MUH SLIDER
 
   if (document.getElementById("year-slider")){
