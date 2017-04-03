@@ -1,6 +1,6 @@
 <h1><%= @group.title %></h1>
 <%= current_user(@group).username %><br>
-Your group will expire in <span id="expiresin"><%= ((Time.strptime(@group.expiration.to_s, '%s')-Time.now)/60).round %></span> minutes
+Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes
 <div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
   <%= render @group.messages %>
 </div>
