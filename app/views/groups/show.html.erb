@@ -1,18 +1,76 @@
-<div class="col-md-3">
-	<h1><%= @group.title %></h1>
-	<%= current_user(@group).username %><br>
-	Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes
-	<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
-	  <%= render @group.messages %>
+<div class="col-md-3 group-left">
+	
+	<div class="row group-left-top">
+		
+		<div class="col-md-2 top-left">
+			<a class="top-btn-left" href="/"><i class="icon ion-chevron-left"></i></a>
+		</div>
+		
+		<div class="col-md-8 top-mid-wrap">
+			<span class="top-middle"><%= truncate(@group.title, :length => 17) %></span>
+		</div>
+
+		<div class="col-md-2 top-right">
+			<a class="top-btn-right" href="#" data-toggle="modal" data-target="#timeModal"><i class="icon ion-ios-time-outline"></i></a>
+		</div>
+
+	</div>
+
+	<div class="group-left-content-wrap">
+		<div class="username-wrap">Your User Name: <%= current_user(@group).username %></div><br>
+	</div>
+
+	<% @group.users.each do |g| %>
+		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">                
+		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
+		    <div class="post-content">
+		        <h3 class="guest-name"><%= g.username %></h3>
+		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
+		</div>
+	<% end%>
+
+</div>
+
+<div class="col-md-9 group-right">
+	<div>
+		<div class="msg-wrapper"  style="margin-top:100px;">
+			<div class="msg-content">
+				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
+				  <%= render @group.messages %>
+				</div>
+			</div>
+		</div>
+		<div>
+			<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+			  <div class="form-group">
+			    <%= f.label :body %>
+			    <%= f.text_area :body, class: 'form-control' %>
+			  </div>
+
+			  <%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
+			<% end %>
+		</div>
 	</div>
 </div>
-<div class="col-md-9">
-	<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-	  <div class="form-group">
-	    <%= f.label :body %>
-	    <%= f.text_area :body, class: 'form-control' %>
-	  </div>
 
-	  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-	<% end %>
+
+<!-- Modal -->
+<div id="timeModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= @group.title %></h4>
+      </div>
+      <div class="modal-body">
+        <p>Your group will expire in <span id="expiresin"><%= ((@group.expiration-Time.now)*1000).round %></span> minutes</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>

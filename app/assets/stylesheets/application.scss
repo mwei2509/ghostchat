@@ -18,8 +18,9 @@
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,700');
 
-body{
-	font-family:"Montserrat"
+html,body,.group-left, .group-right,.create-group-form{
+	font-family:"Montserrat";
+  height:100%;
 }
 .group-new-section-1{
   background: #30168E;
@@ -69,12 +70,14 @@ body{
 	input{
 		height:50px;
 		background-color:rgba(255,255,255,0.1);
-  		color: white !important;
+  		color: white;
 	}
 }
 
 .group-btn{
 	width:100%;
+  color: #311790 !important;  
+  font-size:18px;
 }
 
 .group-header{
@@ -86,17 +89,17 @@ body{
 }
 
 .group-btn{
-    color: #fff;
+    color: #311790 !important;
     height:50px;
-    background-color: rgba(0,0,0,0) !important;
+    background-color: white !important;
 	display: block;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     border:1px solid white !important;
     &:hover{
-    	color:white;
-    	background-color: #5738C8 !important;
+    color: #311790 !important;
+    background-color: white !important;
     }
 }
 
@@ -109,7 +112,7 @@ body{
 
 
 .create-group-form label{
-	color:white !important;
+	color:white;
 	font-weight:500;
 }
 
@@ -365,11 +368,172 @@ input:-webkit-autofill:active {
 
 
 textarea {
+    border:2px solid #BBBDBF;
    resize: none;
 }
+#new_message textarea{
+      border:2px solid #BBBDBF !important;
+      height:40px;
 
+}
+#new_message textarea:focus,#new_message textarea:active{
+       border:2px solid 3B3E99 !important;
+}
 
 .ui-slider-handle:focus, ui-corner-all:focus, ui-state-default:focus, slider4, green, ui-slider, ui-corner-all, ui-slider-horizontal, ui-widget ui-widget-content, ui-slider-pips, ui-slider-float{
 outline:0;
 
 }
+
+.create-group-form, .group-new-section-1{
+  min-height:100%;
+  position:relative;
+}
+
+.group-left, .group-right{
+  min-height:100%;
+  display:table;
+  height:100%; 
+  position:relative;
+}
+
+.group-left{
+  background:#3B3E99;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
+
+.msg-wrapper {
+
+  vertical-align: bottom;
+  height: 400px;
+}
+.msg-content {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.group-left-top{
+background-color:black;
+  width:100%;
+  position:absolute;
+}
+
+.top-btn-left{
+  margin-top:20px;
+  position:relative;
+  text-align:center;
+  color:white;
+  font-size:30px;  
+  transiton: ease-in-out 0.2s;
+  &:hover{
+  color:#3B3E99;
+  }
+}
+
+.top-left{
+  left:0 !important;
+  position:relative !important;
+}
+.top-right{
+  text-align:right;
+  right:0 !important;
+  position:relative !important;
+}
+
+.top-btn-right{
+  text-align:right;
+  position:relative;
+  right:0 !important;
+  top:0;
+  color:white;
+  font-size:32px;
+  transiton: ease-in-out 0.2s;
+  &:hover{
+  color:#3B3E99;
+  }
+}
+
+.top-middle{
+  font-size:20px;color:white;
+  font-weight:500;
+  text-align:center; 
+  padding-top:15px;
+}
+
+.top-mid-wrap{
+padding-top:10px; 
+text-align:center;
+}
+
+.glc-wrap{
+  margin-top:50px;
+  background-color:#F14D7B;
+  color:white;
+}
+
+.username-wrap{
+  color:white;
+  font-weight:300;
+}
+
+.group-left-top{
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+
+.guest-name{
+  color:white;
+  font-size:20px;
+  font-weight: bold;  
+}
+
+.join-date{
+  color:white;
+  font-size:14px;
+}
+
+
+@media screen and (max-width:750px){
+  .group-left{
+    display:none !important;
+  }
+}
+@media screen and (max-width:1000px){
+  .group-left-top{
+    display:none !important;  
+  }  
+}
+@media screen and (min-width:900px){
+  .post-content {
+    color:white;
+    margin-left: 60%;
+  } 
+}
+
+/* Image Left Text Right */
+.post-container {
+    margin: 0px 0px 0 0;  
+    border: 1px solid #333;
+    overflow: auto
+}
+.post-thumb {
+    float: left;
+    padding-left:10px;
+}
+.post-thumb img {
+    display: block;
+    margin-top:15px;
+    marign-left:15px;
+}
+.post-content {
+    color:white;
+
+}
+.post-title {
+    font-weight: bold;
+    font-size: 200%;
+    color:white;
+}
+/* Image Left Text Right */
