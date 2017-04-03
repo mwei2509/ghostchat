@@ -40,8 +40,25 @@ $(document).ready(function(){
   })
 
   //countdown?
-  var elementExists = document.getElementById("expiresin");
-  console.log(elementExists)
+  timer=document.getElementById("expiresin")
+  if(timer){
+    var time = parseInt(timer.innerHTML);
+    var current = 0; // 0 secs
+    function countdown() {
+        current += 1000; //increases every seond
+        var diff = time-current;
+        var min = Math.floor(diff/1000/60);
+        var sec = Math.round((diff/1000) % 60);
+
+        timer.innerHTML = min + ":" + sec;
+        if (diff > 0){
+          setTimeout(countdown, 1000)
+        }else{
+          location.reload();
+        }
+    }
+    countdown();
+  }
 
   // //enter password for group
   // $(document).on('submit','.edit_group', function(e){
@@ -75,12 +92,13 @@ $(document).ready(function(){
   //     })
   // })
   
+  
   //start MUH SLIDER
 
   if (document.getElementById("year-slider")){
     $(function() {
       $("#year-slider .slider").noUiSlider({
-        start: 1,
+        start: 2,
         step: 1,
         connect: "lower",
         range: {

@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
-    if Time.strptime(@group.expiration.to_s, '%s') < Time.now
+    if @group.expiration < Time.now
       render plain: "expired"
     elsif !logged_in?(@group)
       if @group.password_digest
@@ -63,7 +63,12 @@ class GroupsController < ApplicationController
       render :password, locals: {group: @group}, :layout=>'layouts/formlayouts'
     end
   end
+
   private
+
+  def group_exists
+
+  end
 
   def set_group
     if params[:group_slug]

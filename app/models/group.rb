@@ -28,25 +28,12 @@ class Group < ApplicationRecord
     self.title = self.title.strip
   end
 
-  # def set_expiration(min)
-  #   if Time.strptime(self.expiration.to_s, '%s') < Time.now
-  #     self.expiration = Time.now + min.to_i.minutes
-  #   else
-  #     self.expiration = self.expiration + min.to_i.minutes
-  #   end
-  # end
-
   def set_expiration
     self.expiration = Time.now + self.expires_in.to_i.minutes
   end
 
   def self.check_expired
-    groups = Group.all 
-    groups.each do |g|
-      if Time.strptime(g.expiration.to_s, '%s') < Time.now
-        g.destroy
-      end
-    end
+    Group.where('expiration < ?', Time.now).destroy_all
   end
 
 end
