@@ -67,10 +67,6 @@ class GroupsController < ApplicationController
 
   private
 
-  def group_exists
-
-  end
-
   def set_group
     if params[:group_slug]
       @group=Group.find_by(slug: params[:group_slug])

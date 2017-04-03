@@ -76,7 +76,7 @@ html,body,.group-left, .group-right,.create-group-form{
 
 .group-btn{
 	width:100%;
-  color: #311790 !important;  
+  color: #311790 !important;
   font-size:18px;
 }
 
@@ -393,7 +393,7 @@ outline:0;
 .group-left, .group-right{
   min-height:100%;
   display:table;
-  height:100%; 
+  height:100%;
   position:relative;
 }
 
@@ -425,7 +425,7 @@ background-color:black;
   position:relative;
   text-align:center;
   color:white;
-  font-size:30px;  
+  font-size:30px;
   transiton: ease-in-out 0.2s;
   &:hover{
   color:#3B3E99;
@@ -458,12 +458,12 @@ background-color:black;
 .top-middle{
   font-size:20px;color:white;
   font-weight:500;
-  text-align:center; 
+  text-align:center;
   padding-top:15px;
 }
 
 .top-mid-wrap{
-padding-top:10px; 
+padding-top:10px;
 text-align:center;
 }
 
@@ -486,7 +486,7 @@ text-align:center;
 .guest-name{
   color:white;
   font-size:20px;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 .join-date{
@@ -502,19 +502,19 @@ text-align:center;
 }
 @media screen and (max-width:1000px){
   .group-left-top{
-    display:none !important;  
-  }  
+    display:none !important;
+  }
 }
 @media screen and (min-width:900px){
   .post-content {
     color:white;
     margin-left: 60%;
-  } 
+  }
 }
 
 /* Image Left Text Right */
 .post-container {
-    margin: 0px 0px 0 0;  
+    margin: 0px 0px 0 0;
     border: 1px solid #333;
     overflow: auto
 }
@@ -525,7 +525,7 @@ text-align:center;
 .post-thumb img {
     display: block;
     margin-top:15px;
-    marign-left:15px;
+    margin-left:15px;
 }
 .post-content {
     color:white;
@@ -536,4 +536,10 @@ text-align:center;
     font-size: 200%;
     color:white;
 }
+
 /* Image Left Text Right */
+
+// message display css
+.by-current-user{
+  color: #ff0000;
+}

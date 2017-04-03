@@ -37,4 +37,12 @@ class Group < ApplicationRecord
     Group.where('expiration < ?', Time.now).destroy_all
   end
 
+  def random_title
+    randtitle = RandomWord.nouns.next
+    until !Group.pluck(:title).include? randtitle do
+      randtitle = RandomWord.nouns.next
+    end
+    return randtitle
+  end
+
 end
