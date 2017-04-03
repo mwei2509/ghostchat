@@ -7,7 +7,7 @@
 		</div>
 		
 		<div class="col-md-6 top-mid-wrap">
-			<span class="top-middle"><%= truncate @group.title %></span>
+			<span class="top-middle"><%= truncate(@group.title, :length => 11) %></span>
 		</div>
 
 		<div class="col-md-3 top-right">
@@ -25,7 +25,7 @@
 		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
 		    <div class="post-content">
 		        <h3 class="guest-name"><%= g.username %></h3>
-		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %></p></div>
+		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
 		</div>
 	<% end%>
 
