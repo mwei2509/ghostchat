@@ -1,7 +1,8 @@
-
-<div id="message-box" data-id="<%= message.user.id %>" class="message-box message-outer-wrap"><span class="message-username royal">@<%= message.user.username %>:</span> <span class="message-content"><%= message.body %></span><br />
+<div data-id="<%= message.user.id %>" class="message-outer-wrap" id="message-box-<%= message.user.id %>"><span class="message-username message-box-<%= message.user.id %>">@<%= message.user.username %>:</span> <span class="message-content"><%= message.body %></span><br />
 </div>
 
+
 <script>
-  newMessageClass()
+  var my_user_id = <%= message.user.id %>
+  newMessageClass(my_user_id)
 </script>
