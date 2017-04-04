@@ -17,6 +17,8 @@ class Group < ApplicationRecord
   before_validation :sanitize, :slugify
   before_create :set_expiration
 
+  include EncryptText
+
 
   def to_param
     self.slug
