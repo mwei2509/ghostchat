@@ -27,10 +27,12 @@
 		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
 		</div>
 	<% end%>
-
 </div>
 
 <div class="col-md-9 group-right">
+	<div class="social-box-wrap">
+		<div class="social-box"><span>Share Your Group:<%= social_share_button_tag(@group.title) %></span></div>
+	</div>
 	<div class="message-box-main-wrap">
 		<div class="msg-wrapper" style="margin-top:100px;">
 			<div class="msg-content">

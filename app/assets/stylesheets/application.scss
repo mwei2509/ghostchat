@@ -13,14 +13,20 @@
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require social-share-button
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+ @import "social-share-button";
 
 html,body,.group-left, .group-right,.create-group-form{
 	font-family:"Montserrat";
   height:100%;
+}
+.group-right{
+  padding-left:0 !important;
+  padding-right:0;
 }
 .group-new-section-1{
   background: #30168E;
@@ -624,5 +630,34 @@ text-align:center;
   }
   :-moz-placeholder {
     color: #6A737D !important;
+  }
+}
+
+.social-box-wrap{
+  text-align:center;
+  height:45px;
+  width:100%; 
+  background-color:black;
+}
+
+.social-box{
+    padding-top:2px;
+  span{
+    color:white !important;
+    font-size:16px;
+  }  
+}
+
+.msg-wrapper{
+  padding-left:15px;
+}
+
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
   }
 }
