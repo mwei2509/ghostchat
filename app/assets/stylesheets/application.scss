@@ -404,10 +404,10 @@ outline:0;
 
 .msg-wrapper {
   vertical-align: bottom;
-  height: 400px;
+  height: 100%;
 }
 .msg-content {
-  max-height: 400px;
+  max-height: 600px;
   overflow: scroll;
   max-width:100%;
 }
@@ -570,7 +570,7 @@ text-align:center;
 }
 
 #messages{
-  max-height:450px;
+  max-height:580px;
   overflow-y:auto;
   padding-bottom:0px;
   padding-left:5px;

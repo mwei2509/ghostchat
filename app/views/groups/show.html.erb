@@ -34,7 +34,7 @@
 		<div class="social-box"><span>Share Your Group:<%= social_share_button_tag(@group.title) %></span></div>
 	</div>
 	<div class="message-box-main-wrap">
-		<div class="msg-wrapper" style="margin-top:100px;">
+		<div class="msg-wrapper">
 			<div class="msg-content">
 				<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
 				  <%= render @group.messages %>
