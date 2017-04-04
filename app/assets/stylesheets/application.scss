@@ -404,6 +404,7 @@ outline:0;
   display:table;
   height:100%;*/
   position:relative;
+  overflow:scroll;
 }
 
 .group-left{
@@ -415,11 +416,12 @@ outline:0;
 
 .msg-wrapper {
   vertical-align: bottom;
-  height: 400px;
+  height: 100%;
 }
 .msg-content {
-  max-height: 400px;
+  max-height: 600px;
   overflow: scroll;
+  max-width:100%;
 }
 
 .group-left-top{
@@ -510,13 +512,14 @@ text-align:center;
   .group-left{
      display:none !important;
   }
-  .msg-input-wrap{
+  /*.msg-input-wrap{
     bottom:15px;
     width: 75%;
     position: fixed;
     left: 50%;
-    margin-left: -37.5%;
-  }
+    margin-left: -37.5%;    
+  }  */
+  
 }
 @media screen and (max-width:1000px){
   .group-left-top{
@@ -580,11 +583,12 @@ text-align:center;
 }
 
 #messages{
-  max-height:450px;
+  max-height:580px;
   overflow-y:auto;
-  padding-bottom:30px;
+  padding-bottom:0px;
   padding-left:5px;
-
+  padding-right:5px;
+  overflow-wrap: break-word;
 }
 
 .text-area-wrap{
@@ -592,6 +596,7 @@ text-align:center;
 }
 
 .message-box-main-wrap{
+  width:100%;
   position:absolute !important;
 
 }
@@ -605,15 +610,15 @@ text-align:center;
 .msg-input-wrap{
   position:fixed;
   bottom:15px;
-  width:80%;
+  width:90%;
   text-align:center !important;
-
 }
 
 .msg-box-wrap{
-  margin:auto;text-align:center;width:85%;
+  margin:auto;
+  text-align:center;
+  width:100%;  
 }
-
 
 #new_group{
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -672,4 +677,9 @@ $size: 24px;
     height: $size;
     width: $size;
   }
+}
+
+
+.usernames-wrap{
+
 }
