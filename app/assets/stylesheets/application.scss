@@ -30,11 +30,23 @@ html,body,.group-left, .group-right,.create-group-form{
 }
 .group-new-section-1{
   background: #30168E;
-  background: -webkit-linear-gradient(left top, #30168E, #724FEF);
-  background: -o-linear-gradient(bottom right, #30168E, #724FEF);
-  background: -moz-linear-gradient(bottom right, #30168E, #724FEF);
-  background: linear-gradient(to bottom right, #30168E, #724FEF);
+//   background: -webkit-linear-gradient(left top, #30168E, #724FEF);
+//   background: -o-linear-gradient(bottom right, #30168E, #724FEF);
+//   background: -moz-linear-gradient(bottom right, #30168E, #724FEF);
+//   background: linear-gradient(to bottom right, #30168E, #724FEF);
+//   background-color: rgba(248,80,50,1);
+// background: @include filter-gradient(#f85032, #e73827, horizontal);
+
+// background: url("http://emerginggrowth.com/wp-content/uploads/2016/04/Home-Background-Galaxy.jpg");
+// background-size: cover;
+
+background: #152770; /* For browsers that do not support gradients */
+background: -webkit-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Firefox 3.6 to 15 */
+background: linear-gradient(150deg, #152770, #3381b2, #228b8e); /* Standard syntax (must be last) */
 }
+
 .group-new-right-top{
 	padding:20px;
 	margin:auto;
@@ -423,7 +435,7 @@ background-color:black;
   position:relative;
   text-align:center;
   color:white;
-  font-size:24px;  
+  font-size:24px;
   transiton: ease-in-out 0.2s;
   &:hover{
   color:#3B3E99;
@@ -487,7 +499,7 @@ text-align:center;
 .guest-name{
   color:white;
   font-size:18px !important;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 .join-date{
@@ -507,6 +519,7 @@ text-align:center;
     left: 50%;
     margin-left: -37.5%;    
   }  */
+  
 }
 @media screen and (max-width:1000px){
   .group-left-top{
@@ -517,7 +530,7 @@ text-align:center;
   .post-content {
     color:white;
     margin-left: 50%;
-  }  
+  }
 }
 
 /* Image Left Text Right */
@@ -640,7 +653,7 @@ text-align:center;
 .social-box-wrap{
   text-align:center;
   height:45px;
-  width:100%; 
+  width:100%;
   background-color:black;
 }
 
@@ -649,7 +662,7 @@ text-align:center;
   span{
     color:white !important;
     font-size:16px;
-  }  
+  }
 }
 
 .msg-wrapper{
