@@ -9,6 +9,9 @@ class GroupsController < ApplicationController
 
   def create
     @group=Group.new(group_params)
+    if @group.title.empty?
+      @group.random_title
+    end
     if @group.save
       respond_to do |format|
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}

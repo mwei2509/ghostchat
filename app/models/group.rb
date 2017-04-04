@@ -17,6 +17,7 @@ class Group < ApplicationRecord
   before_validation :sanitize, :slugify
   before_create :set_expiration
 
+
   def to_param
     self.slug
   end
@@ -38,11 +39,11 @@ class Group < ApplicationRecord
   end
 
   def random_title
-    randtitle = RandomWord.nouns.next
+    randtitle = RandomNouns.sample
     until !Group.pluck(:title).include? randtitle do
-      randtitle = RandomWord.nouns.next
+      randtitle = RandomNouns.sample
     end
-    return randtitle
+    self.title=randtitle
   end
 
 end

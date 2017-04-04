@@ -10,4 +10,11 @@ class User < ApplicationRecord
   # def is_creator?
   #   is_creator == true
   # end
+  def random_name
+    randname = RandomAdjs.sample + "_" + RandomNouns.sample
+    until !User.pluck(:username).include? randname do
+      randname = RandomAdjs.sample + "_" + RandomNouns.sample
+    end
+    self.username=randname
+  end
 end
