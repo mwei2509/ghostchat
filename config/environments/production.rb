@@ -77,7 +77,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
   config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
-  config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-XXXXXXXX-X'
+  config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['RAILS_GA_CODE']
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)

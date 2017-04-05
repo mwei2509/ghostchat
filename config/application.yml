@@ -11,3 +11,4 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 message_key: "\xF6v\vQ\xA46S\xA8\xDCr*tM\xE9or"
 algorithm: "AES-128-ECB"
+RAILS_GA_CODE: UA-96863281-1
