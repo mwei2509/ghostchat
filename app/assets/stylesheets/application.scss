@@ -25,6 +25,13 @@ html,body,.group-left, .group-right,.create-group-form{
   height:100%;
 }
 
+/*#element::-webkit-scrollbar { 
+    display: none; 
+}*/
+
+::-webkit-scrollbar { 
+    display: none; 
+}
 
 .group-new-section-1{
   background: #30168E;

@@ -823,11 +823,7 @@ function newMessageClass(my_user_id){
   console.log(poster)
   if(current_user === poster){
     $('.message-box-' + my_user_id).each(function(i, obj) {
-      $(this).addClass('message-guest')
-      $(this).parent().parent().addClass('chat-message-self')
+      $(this).addClass('by-current-user')
     });
-  }
-  else{
-      $(this).addClass('by-current-user')    
   }
 }

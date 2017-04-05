@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@media screen and (max-width: 768){
 
+  textarea{
+    height:100px;
+    font-size:30px !important;  
+  }
+  .message-username, .message-content{
+    font-size:28px !important;
+  }
+}
 .msg-box-wrap{
     position:absolute;	
     bottom:0;
@@ -16,7 +25,7 @@
 /*		position:absolute;
 		bottom:0;*/
 		textarea{
-		    border:2px solid #eeeeee;
+		    border:2px solid #3B3E99;
 		   resize: none;		
 			::-webkit-input-placeholder { 
 		  		color: #6A737D !important;
@@ -30,6 +39,10 @@
 		  	:-moz-placeholder {
 		    	color: #6A737D !important;
 		 	}		   	
+      &:focus{
+        outline:none;
+        box-shadow:none;
+      }
 		}
 	}	
 /*	right:0;
@@ -51,8 +64,7 @@
 }
 
 .message-guest{
-  /*color:#6A737D;*/
-  color:white;
+  color:#6A737D;
 }
 
 .message-content{
@@ -97,6 +109,12 @@ overflow: scroll;
 max-width:100%;
  max-height: 100%;
 }
+
+.message-outer-wrap{
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
 /*
 
 
@@ -142,10 +160,6 @@ max-width:100%;
   font-weight:500;
 }
 
-.message-outer-wrap{
-  padding-top:3px;
-  padding-bottom:3px;
-}
 
 #messages{
   max-height:580px;
