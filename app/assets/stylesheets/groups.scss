@@ -3,6 +3,177 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+/*.group-right{
+  padding-left:0 !important;
+  padding-right:0 !important;
+  position:relative;
+
+}*/
+
+.group-new-right-top{
+  padding:20px;
+  margin:auto;
+  margin-top:50px !important;
+  width:85%;
+}
+
+
+.chat-content{
+	position: absolute !important;
+    top: 0px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1; 
+}
+.chat-content-layout {
+      height: 100% !important;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; 
+}
+
+.group-left{
+  position:relative;
+  overflow:scroll;
+  background:#3B3E99;
+  padding-left:0 !important;
+  padding-right:0 !important;	
+	
+	.group-left-top{
+	  margin-left:0 !important;
+	  margin-right:0 !important;		
+	  background-color:black;
+	  width:100%;
+	  position:absolute;
+		
+		.top-left{
+		  left:0 !important;
+		  position:relative !important;
+			
+			.top-btn-left{
+			  margin-top:26px;
+			  position:relative;
+			  text-align:center;
+			  color:white;
+			  font-size:24px;
+			  transiton: ease-in-out 0.2s;
+			  &:hover{
+			  color:#3B3E99;
+			  }
+			  i::before{
+			    margin-top:10px;
+			  }
+			}		  
+		}	
+
+		.top-mid-wrap{
+			padding-top:10px;
+			text-align:center;
+			
+			.top-middle{
+			  font-size:20px;color:white;
+			  font-weight:500;
+			  text-align:center;
+			  padding-top:15px;
+			}
+		}
+
+		.top-right{
+		  text-align:right;
+		  right:0 !important;
+		  position:relative !important;
+			
+			.top-btn-right{
+			  text-align:right;
+			  position:relative;
+			  right:0 !important;
+			  top:0;
+			  color:white;
+			  font-size:32px;
+			  transition: ease-in-out 0.2s;
+			 
+			  &:hover{
+			  color:#3B3E99;
+			  }
+			}
+		}
+
+	}
+
+	.post-container {
+	    margin: 0px 0px 0 0;
+	    border: 1px solid #333;
+	    overflow: auto;
+
+		.post-thumb {
+		    float: left;
+		    padding-left:10px;
+			
+			img {
+			    display: block;
+			    margin-top:15px;
+			    margin-left:15px;
+			}
+		}
+		.post-content {
+		    color:white;
+
+			.guest-name{
+			  color:white;
+			  font-size:18px !important;
+			  font-weight: bold;
+			}
+
+			.join-date{
+			  color:white;
+			  font-size:12px !important;
+			}	
+
+		}
+	}
+
+	.post-title {
+	    font-weight: bold;
+	    font-size: 200%;
+	    color:white;
+	}
+
+	.glc-wrap{
+	  margin-top:0px;
+	  background-color:#F14D7B;
+	  color:white;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #galaxy {
   z-index: -1;
   position: fixed;
@@ -216,3 +387,4 @@
     transform: rotate(0deg);
   }
 }
+

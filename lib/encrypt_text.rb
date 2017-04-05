@@ -1,6 +1,7 @@
 require 'openssl'
 
 module EncryptText
+  
   KEY = ENV["message_key"]
   ALGORITHM = ENV["algorithm"]
 
