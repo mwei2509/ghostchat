@@ -55,7 +55,7 @@ $(document).ready(function(){
         if (diff > 0){
           setTimeout(countdown, 1000)
         }else{
-          location.reload();
+            window.location.reload(true)
         }
     }
     countdown();

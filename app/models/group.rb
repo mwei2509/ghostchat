@@ -17,8 +17,6 @@ class Group < ApplicationRecord
   before_validation :sanitize, :slugify
   before_create :set_expiration
 
-  include EncryptText
-
 
   def to_param
     self.slug
@@ -46,6 +44,19 @@ class Group < ApplicationRecord
       randtitle = RandomNouns.sample
     end
     self.title=randtitle
+  end
+
+  def self.checkvalid(g)
+    #check if exist
+    if g.nil?
+      return false
+    #expired?
+    elsif g.expiration < Time.now
+      g.destroy
+      return false
+    else
+      return true
+    end
   end
 
 end
