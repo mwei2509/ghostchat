@@ -1,2 +1,4 @@
-<div data-id="<%= message.user.id %>" class="message-outer-wrap"><span class="message-username <%= message.user == current_user(message.group) ? 'by-current-user' : 'message-guest' %>">@<%= message.user.username %>:</span> <span class="message-content"><%= EncryptText.decrypt(message.body) %></span><br />
+<div data-id="<%= message.user.id %>" class="chat-message chat-message-friend message-outer-wrap <%= message.user == current_user(message.group) ? 'chat-message-self' : '' %>">
+	<div class="chat-message-bubble"><span class="message-username <%= message.user == current_user(message.group) ? 'message-guest' : 'by-current-user' %>">@<%= message.user.username %>:</span> <span class="message-content"><%= EncryptText.decrypt(message.body) %></span><br />
+	</div>
 </div>
