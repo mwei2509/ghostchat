@@ -215,3 +215,14 @@ padding-bottom: 15vh;
   text-align:center;
   width:100%;
 }*/
+
+@media screen and (max-width: 768px){
+  .msg-box-wrap{
+    height: 20% !important;
+    margin-top: -20% !important;
+  }
+  .msg-wrapper{
+    height: 100% !important;
+    padding-bottom: 20% !important;
+  }
+}
