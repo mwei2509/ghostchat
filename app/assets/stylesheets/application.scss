@@ -21,7 +21,7 @@
  @import "social-share-button";
 
 html,body,.group-left, .group-right,.create-group-form{
-	font-family:"Montserrat";
+  font-family:"Montserrat";
   height:100%;
 }
 .group-right{
@@ -48,59 +48,59 @@ background: linear-gradient(150deg, #152770, #3381b2, #228b8e); /* Standard synt
 }
 
 .group-new-right-top{
-	padding:20px;
-	margin:auto;
+  padding:20px;
+  margin:auto;
   margin-top:50px !important;
-	width:85%;
+  width:85%;
 }
 .new_group{
-	background:none;
+  background:none;
 }
 .create-group-form{
-	border: 1px solid #DDDDDD;
-	border-radius:3px;
-	margin-bottom:10px;
+  border: 1px solid #DDDDDD;
+  border-radius:3px;
+  margin-bottom:10px;
 }
 
 .cgf-header{
-	/*background:#F5F5F5;*/
-	color:white;
-	font-size:24px;
-	background:rgba(255,255,255,0.1);
-	text-align:center;
-	border-bottom:1px solid #DDDDDD;
-	padding:20px;
+  /*background:#F5F5F5;*/
+  color:white;
+  font-size:24px;
+  background:rgba(255,255,255,0.1);
+  text-align:center;
+  border-bottom:1px solid #DDDDDD;
+  padding:20px;
 }
 
 
 .cgf-input-container{
-	padding:20px;
-	input{
-		height:50px;
-		background-color:rgba(255,255,255,0.1);
-  		color: white;
-	}
+  padding:20px;
+  input{
+    height:50px;
+    background-color:rgba(255,255,255,0.1);
+      color: white;
+  }
 }
 
 .group-btn{
-	width:100%;
+  width:100%;
   color: #311790 !important;
   font-size:18px;
 }
 
 .group-header{
-	font-size:24px;
-	text-align:center;
-	padding:20px;
-	margin-top:70px;
-	color:white;
+  font-size:24px;
+  text-align:center;
+  padding:20px;
+  margin-top:70px;
+  color:white;
 }
 
 .group-btn{
     color: #311790 !important;
     height:50px;
     background-color: white !important;
-	display: block;
+  display: block;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -112,16 +112,16 @@ background: linear-gradient(150deg, #152770, #3381b2, #228b8e); /* Standard synt
 }
 
 .home-description{
-	margin:auto;
-	width:45%;
-	font-size:18px;
-	font-weight:300;
+  margin:auto;
+  width:45%;
+  font-size:18px;
+  font-weight:300;
 }
 
 
 .create-group-form label{
-	color:white;
-	font-weight:500;
+  color:white;
+  font-weight:500;
 }
 
 input:-webkit-autofill,
@@ -512,13 +512,6 @@ text-align:center;
   .group-left{
      display:none !important;
   }
-  /*.msg-input-wrap{
-    bottom:15px;
-    width: 75%;
-    position: fixed;
-    left: 50%;
-    margin-left: -37.5%;    
-  }  */
   
 }
 @media screen and (max-width:1000px){
@@ -682,4 +675,15 @@ $size: 24px;
 
 .usernames-wrap{
 
+}
+
+
+.group-header{
+  h1{
+    font-size:28px;
+    line-height:38px;
+  }
+  p{
+    font-size:18px;
+  }
 }
