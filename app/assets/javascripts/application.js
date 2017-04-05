@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require social-share-button
-//= require turbolinks
 //= require_tree .
 //= require cable
 
