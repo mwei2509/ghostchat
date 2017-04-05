@@ -38,7 +38,7 @@
   width: 400px;
   height: 200px;
   margin: -100px 0 0 -200px;
-  opacity: 0.8;
+  opacity: 0.3;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
   border-radius: 500px;
@@ -53,6 +53,7 @@
 
 #galaxy .stars-back {
   background: url("https://raw.githubusercontent.com/gurde/css3-animated-galaxy/master/img/back.png");
+  opacity: 0.9;
   -webkit-animation: orbit-clock-wise 440s infinite linear;
   -moz-animation: orbit-clock-wise 440s infinite linear;
   -o-animation: orbit-clock-wise 440s infinite linear;
@@ -62,6 +63,7 @@
 
 #galaxy .stars-middle {
   background: url("https://raw.githubusercontent.com/gurde/css3-animated-galaxy/master/img/middle.png");
+  opacity: 0.6;
   -webkit-animation: orbit-counter-clock-wise 360s infinite linear;
   -moz-animation: orbit-counter-clock-wise 360s infinite linear;
   -o-animation: orbit-counter-clock-wise 360s infinite linear;
@@ -71,6 +73,7 @@
 
 #galaxy .stars-front {
   background: url("https://raw.githubusercontent.com/gurde/css3-animated-galaxy/master/img/front.png");
+  opacity: 1;
   -webkit-animation: orbit-clock-wise 160s infinite linear;
   -moz-animation: orbit-clock-wise 160s infinite linear;
   -o-animation: orbit-clock-wise 160s infinite linear;
@@ -80,20 +83,20 @@
 
 @-webkit-keyframes orbit-clock-wise {
   0% {
-    opacity: 0.4;
+    opacity: 0.2;
     -webkit-transform: rotate(0deg);
   }
   2% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   4% {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   5% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   100% {
-    opacity: 0.4;
+    opacity: 0.2;
     -webkit-transform: rotate(360deg);
   }
 }
@@ -107,20 +110,20 @@
 }
 @-moz-keyframes orbit-clock-wise {
   0% {
-    opacity: 0.4;
+    opacity: 0.2;
     -moz-transform: rotate(0deg);
   }
   2% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   4% {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   5% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   100% {
-    opacity: 0.4;
+    opacity: 0.2;
     -moz-transform: rotate(360deg);
   }
 }
@@ -134,17 +137,17 @@
 }
 @-o-keyframes orbit-clock-wise {
   0% {
-    opacity: 0.4;
+    opacity: 0.2;
     -o-transform: rotate(0deg);
   }
   2% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   4% {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   5% {
-    opacity: 0.8;
+    opacity: .4;
   }
   100% {
     opacity: 0.4;
@@ -165,16 +168,16 @@
     -ms-transform: rotate(0deg);
   }
   2% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   4% {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   5% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   100% {
-    opacity: 0.4;
+    opacity: 0.2;
     -ms-transform: rotate(360deg);
   }
 }
@@ -192,16 +195,16 @@
     transform: rotate(0deg);
   }
   2% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   4% {
-    opacity: 0.2;
+    opacity: 0.1;
   }
   5% {
-    opacity: 0.8;
+    opacity: 0.4;
   }
   100% {
-    opacity: 0.4;
+    opacity: 0.2;
     transform: rotate(360deg);
   }
 }
