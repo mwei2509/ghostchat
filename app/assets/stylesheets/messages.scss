@@ -218,10 +218,13 @@ padding-bottom: 15vh;
 
 @media screen and (max-width: 768px){
   .msg-box-wrap{
-    position: absolute !important;
+    position: fixed !important;
     bottom: 0 !important;
     height: 60px !important;
     width: 100% !important;
+    textarea{
+
+    }
   }
   .msg-wrapper{
     position: absolute !important;
