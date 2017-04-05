@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.mobile
 //= require social-share-button
 //= require_tree .
 //= require cable
