@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, :check_exists, only: [:authenticate, :show, :edit, :update, :destroy]
+  before_action :set_group, :check_group, only: [:authenticate, :show, :edit, :update, :destroy]
+
   def new
     @group = Group.new
     respond_to do |format|
@@ -28,9 +29,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.includes(:messages).find_by(slug: params[:slug])
     @message = Message.new
-    if @group.expiration < Time.now
-      render plain: "expired"
-    elsif !logged_in?(@group)
+    if !logged_in?(@group)
       if @group.password_digest
         render :password, locals: {group: @group}, :layout=>'layouts/formlayouts'
       else
@@ -78,8 +77,9 @@ class GroupsController < ApplicationController
     end
   end
 
-  def check_exists
-    if @group.nil?
+  def check_group
+    valid = Group.checkvalid(@group)
+    if !valid
       flash[:error] = "This group does not exist or has expired.  Please create a new group"
       redirect_to new_group_path
     end

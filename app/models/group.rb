@@ -11,13 +11,11 @@ class Group < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: {case_sensitive: false}
   validates :expires_in, numericality: {:greater_than => 0, :less_than_or_equal_to => 1440}
 
   before_validation :sanitize, :slugify
   before_create :set_expiration
-
-  include EncryptText
 
 
   def to_param
@@ -46,6 +44,19 @@ class Group < ApplicationRecord
       randtitle = RandomNouns.sample
     end
     self.title=randtitle
+  end
+
+  def self.checkvalid(g)
+    #check if exist
+    if g.nil?
+      return false
+    #expired?
+    elsif g.expiration < Time.now
+      g.destroy
+      return false
+    else
+      return true
+    end
   end
 
 end

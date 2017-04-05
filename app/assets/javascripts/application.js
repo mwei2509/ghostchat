@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require social-share-button
-//= require turbolinks
 //= require_tree .
 //= require cable
 
@@ -55,7 +54,7 @@ $(document).ready(function(){
         if (diff > 0){
           setTimeout(countdown, 1000)
         }else{
-          location.reload();
+            window.location.reload(true)
         }
     }
     countdown();
