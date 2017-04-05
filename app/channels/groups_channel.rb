@@ -1,3 +1,4 @@
+require 'encrypt_text'
 class GroupsChannel < ApplicationCable::Channel
 
   def subscribed
