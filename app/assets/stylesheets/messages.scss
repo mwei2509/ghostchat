@@ -217,6 +217,9 @@ padding-bottom: 15vh;
 }*/
 
 @media screen and (max-width: 768px){
+  body{
+    overflow-y: scroll;
+  }
   .msg-box-wrap{
     position: fixed !important;
     bottom: 0 !important;
