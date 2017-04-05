@@ -37,14 +37,14 @@ html,body,.group-left, .group-right,.create-group-form{
 //   background-color: rgba(248,80,50,1);
 // background: @include filter-gradient(#f85032, #e73827, horizontal);
 
-// background: url("http://emerginggrowth.com/wp-content/uploads/2016/04/Home-Background-Galaxy.jpg");
-// background-size: cover;
+background: url("http://emerginggrowth.com/wp-content/uploads/2016/04/Home-Background-Galaxy.jpg");
+background-size: cover;
 
-background: #152770; /* For browsers that do not support gradients */
-background: -webkit-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Safari 5.1 to 6.0 */
-background: -o-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Opera 11.1 to 12.0 */
-background: -moz-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Firefox 3.6 to 15 */
-background: linear-gradient(150deg, #152770, #3381b2, #228b8e); /* Standard syntax (must be last) */
+// background: #152770; /* For browsers that do not support gradients */
+// background: -webkit-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Safari 5.1 to 6.0 */
+// background: -o-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Opera 11.1 to 12.0 */
+// background: -moz-linear-gradient(150deg, #152770, #3381b2, #228b8e); /* For Firefox 3.6 to 15 */
+// background: linear-gradient(150deg, #152770, #3381b2, #228b8e); /* Standard syntax (must be last) */
 }
 
 .group-new-right-top{
@@ -517,9 +517,9 @@ text-align:center;
     width: 75%;
     position: fixed;
     left: 50%;
-    margin-left: -37.5%;    
+    margin-left: -37.5%;
   }  */
-  
+
 }
 @media screen and (max-width:1000px){
   .group-left-top{
@@ -617,7 +617,7 @@ text-align:center;
 .msg-box-wrap{
   margin:auto;
   text-align:center;
-  width:100%;  
+  width:100%;
 }
 
 #new_group{
