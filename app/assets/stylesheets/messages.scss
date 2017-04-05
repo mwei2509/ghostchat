@@ -220,13 +220,14 @@ padding-bottom: 15vh;
   .msg-box-wrap{
     position: absolute !important;
     bottom: 0 !important;
-    height: 20% !important;
-    margin-top: -20% !important;
+    height: 60px !important;
+    width: 100% !important;
   }
   .msg-wrapper{
     position: absolute !important;
     bottom: 0 !important;
     height: auto !important;
-    padding-bottom: 20% !important;
+    padding-bottom: 70px !important;
+    width: 100% !important;
   }
 }
