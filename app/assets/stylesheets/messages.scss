@@ -157,8 +157,13 @@
           background: #fff;
           color: #000;
           border: 0;
-    		   resize: none;
-    			::-webkit-input-placeholder {
+    		  resize: none;
+          box-shadow: none;
+         -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+         -moz-transition: none;
+         -webkit-transition: none;
+          ::-webkit-input-placeholder {
     		  		color: #6A737D !important;
               font-size:17px;
     		  	}
@@ -178,7 +183,11 @@
             outline:none !important;
             box-shadow:0 !important;
             border: 0;
-
+            box-shadow: none;
+           -webkit-box-shadow: none;
+           -moz-box-shadow: none;
+           -moz-transition: none;
+           -webkit-transition: none;
           }
         }
 }
