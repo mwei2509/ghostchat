@@ -115,6 +115,9 @@
     position: absolute !important;
     left: 0 !important;
   }
+  .message-outer-wrap{
+    padding-left:7px;
+  }
 }
 
 .fixed-top-bar{
@@ -142,11 +145,12 @@
     background-color: #fff;
     color: #000;
     textarea{
+          box-sizing: border-box;  
           height: 10vh !important;
           vertical-align: bottom !important;
           overflow: auto;
           display: block !important;
-          padding: 0 !important;
+          padding: 12px !important;
           margin: 0 !important;
     		  // border:2px solid #3B3E99;
           border-radius: 0;
@@ -156,15 +160,19 @@
     		   resize: none;
     			::-webkit-input-placeholder {
     		  		color: #6A737D !important;
+              font-size:17px;
     		  	}
     			::-moz-placeholder {
     			    color: #6A737D !important;
+              font-size:17px;
     			}
     		  	:-ms-input-placeholder {
     		    	color: #6A737D !important;
+              font-size:17px;
     		  	}
     		  	:-moz-placeholder {
     		    	color: #6A737D !important;
+              font-size:17px;
     		 	}
           &:focus{
             outline:none !important;
