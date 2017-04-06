@@ -43,7 +43,7 @@
 				<div class="msg-wrapper">
 					<!-- <div class="msg-content"> -->
 						<div id="messages" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
-						  <%= render @group.messages %>
+						  <%= render @group.messages.order(:created_at) %>
 							<span id="userid" style="display:none;"><%= current_user(@group).id %></span>
 						</div>
 					<!-- </div> -->
