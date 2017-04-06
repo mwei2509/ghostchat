@@ -217,10 +217,11 @@ padding-bottom: 15vh;
 }*/
 
 @media screen and (max-width: 768px){
-  body{
+  html, body{
     display: inline-block !important;
     min-height: 100% !important;
     min-width: 100% !important;
+    overflow: scroll !important;
   }
   .msg-box-wrap{
     position: fixed !important;
