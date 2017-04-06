@@ -15,66 +15,47 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-9 social-box-wrap">
+	<div class="col-md-9 social-box-wrap navbar-header">
+		<a href="#" data-toggle="offcanvas" data-target=".sidebar-nav" class="navbar-toggle"><i class="fa fa-bars" style="color: #fff;"></i></a>
 		<div class="social-box"><span>Share Your Group:<%= social_share_button_tag(@group.title) %></span></div>
 	</div>
 
 </div>
 
-<div class="col-md-3 group-left">
-	<!-- <div class="row group-left-top">
-		<span id="userid" style="display: none"><%= current_user(@group).id %></span>
-		<div class="col-md-2 top-left">
-			<a class="top-btn-left" href="<%= root_path %>"><i class="icon ion-chevron-left"></i></a>
+<!-- <div class="row-offcanvas row-offcanvas-left"> -->
+	<div class="col-md-3 group-left sidebar-offcanvas" id="sidebar">
+		<div class="group-left-content-wrap">
+			<div class="username-wrap">Your User Name: <%= current_user(@group).username %></div><br>
 		</div>
-
-		<div class="col-md-8 top-mid-wrap">
-			<span class="top-middle"><%= truncate(@group.title, :length => 17) %></span>
-		</div>
-
-		<div class="col-md-2 top-right">
-			<a class="top-btn-right" href="#" data-toggle="modal" data-target="#timeModal"><i class="icon ion-ios-time-outline"></i></a>
-		</div>
-	</div> -->
-
-	<div class="group-left-content-wrap">
-		<div class="username-wrap">Your User Name: <%= current_user(@group).username %></div><br>
-	</div>
-	<% @group.users.each do |g| %>
-		<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">
-		    <div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
-		    <div class="post-content">
-		        <h3 class="guest-name"><%= truncate(g.username, :length=>19) %></h3>
-		        <p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
-		</div>
-	<% end%>
-
-</div>
-
-<div class="col-md-9 group-right">
-	<div class="chat-content">
-			<!-- social box -->
-			<!-- <div id="header" class="social-box-wrap">
-				<div class="social-box"><span>Share Your Group:<%= social_share_button_tag(@group.title) %></span></div>
-			</div> -->
-			<!-- end social box -->
-			<!-- display messages -->
-			<div id="messages" class="scrollable" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
-			  <%= render @group.messages.order(:created_at) %>
-				<span id="userid" style="display:none;"><%= current_user(@group).id %></span>
+		<% @group.users.each do |g| %>
+			<div class="post-container <%= g == current_user(@group) ? 'glc-wrap' : '' %>">
+					<div class="post-thumb"><img src="<%= image_url 'ghost-6.png' %>" width="50" height="50" /></div>
+					<div class="post-content">
+							<h3 class="guest-name"><%= truncate(g.username, :length=>19) %></h3>
+							<p class="join-date">Joined <%= time_ago_in_words(g.created_at) %> ago</p></div>
 			</div>
-			<!-- end display messages -->
+		<% end%>
+	</div>
+
+	<div class="col-md-9 group-right">
+		<div class="chat-content">
+				<div id="messages" class="scrollable" data-group-id="<%= @group.id %>" data-user-id="<%= current_user(@group).id %>">
+				  <%= render @group.messages.order(:created_at) %>
+					<span id="userid" style="display:none;"><%= current_user(@group).id %></span>
+				</div>
+				<!-- end display messages -->
 
 			<!-- input box -->
-			<div id="footer">
-				<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
-					<%= f.text_area :body, class: 'form-control', placeholder:"What's on your mind?" %>
-					<%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
-				<% end %>
-			</div>
-			<!-- end input box -->
+				<div id="footer">
+					<%= form_for @message, url: '#', data: {"user-id": current_user(@group).id} do |f| %>
+						<%= f.text_area :body, class: 'form-control', placeholder:"What's on your mind?" %>
+						<%= f.submit "Post", class: 'btn btn-primary btn-lg', style: "display:none;" %>
+					<% end %>
+				</div>
+				<!-- end input box -->
+		</div>
 	</div>
-</div>
+<!-- </div> -->
 
 
 <!-- Modal -->
@@ -117,4 +98,12 @@ $('body').on('touchstart', selScrollable, function(e) {
 $('body').on('touchmove', selScrollable, function(e) {
   e.stopPropagation();
 });
+
+$(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.sidebar-offcanvas').toggleClass('active');
+  });
+});
+
+
 </script>
