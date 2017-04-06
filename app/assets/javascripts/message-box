@@ -1,0 +1,3 @@
+<style>
+	.msg-box .source{display:inline-block;background-color:#f8f8f8;color:#989898;text-transform:uppercase;font-size:0.75em;margin-left:0.25em;vertical-align:top;top:-0.2em;position:relative;margin-right:0.25em;padding-left:0.25em;padding-right:0.25em}@media (max-width: 800px){.msg-box .source{display:none}}.mgs-box:hover .source{background-color:#fff}.msg-box .source a{color:#989898;text-decoration:none}.emoji{vertical-align:middle;display:inline-block}.left_list ul img.emoji{height:1.25em !important}.chat-box .live .msg-box img.emoji{height:1.75em !important;height:1.5em !important}
+</style>
