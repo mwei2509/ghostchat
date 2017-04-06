@@ -219,7 +219,7 @@ padding-bottom: 15vh;
 @media screen and (max-width: 768px){
   body{
     display: inline-block !important;
-    min-width: 100% !important;
+    min-height: 100% !important;
   }
   .msg-box-wrap{
     position: fixed !important;
