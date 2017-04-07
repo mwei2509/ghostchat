@@ -2,6 +2,7 @@
 	<div class="col-md-3">
 		<div class="group-left-top">
 			<span id="userid" style="display: none"><%= current_user(@group).id %></span>
+			<span id="groupaccess" style="display: none"><%= session["group_#{@group.id}_access"] %></span>
 			<div class="col-md-2 top-left">
 				<a class="top-btn-left" href="<%= root_path %>"><i class="icon ion-chevron-left"></i></a>
 			</div>

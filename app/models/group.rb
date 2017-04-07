@@ -1,3 +1,6 @@
+require 'digest/md5'
+require 'encrypt_text'
+
 class Group < ApplicationRecord
   attr_accessor :expires_in
   has_secure_password validations: false
@@ -17,6 +20,15 @@ class Group < ApplicationRecord
   before_validation :sanitize, :slugify
   before_create :set_expiration
 
+#takes input of group's password (after authentication) and creates a key
+  def self.set_group_key(password)
+    EncryptText.encrypt_key(Digest::MD5.hexdigest(password + ENV["message_key"]))
+  end
+
+#gets the encryption key based off what's stored in the user's session
+  def self.get_group_key(session)
+    EncryptText.decrypt_key(session)
+  end
 
   def to_param
     self.slug

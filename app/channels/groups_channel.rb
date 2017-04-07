@@ -12,6 +12,7 @@ class GroupsChannel < ApplicationCable::Channel
 
   def send_message(data)
     # process data sent from the page
+    byebug
     User.find(data['user_id']).messages.create!(body: EncryptText.encrypt(data['message']), group_id: data['group_id'])
   end
 end
