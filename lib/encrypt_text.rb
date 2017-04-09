@@ -4,14 +4,16 @@ require 'bcrypt'
 module EncryptText
   KEY = ENV["message_key"]
   KEY32 = ENV["message_key_32"]
-  ALGORITHM = 'AES-256-CBC'
-  #ALGORITHM = ENV["algorithm"]
+  ALGORITHM = ENV["algorithm"]
 
   def self.encrypt(message, password, iv)
-    # SecureRandom.random_bytes(16)
     cipher=OpenSSL::Cipher.new(ALGORITHM)
     cipher.encrypt()
-    cipher.key = self.digest_password(password)
+    if password.nil?
+      cipher.key = KEY32
+    else
+      cipher.key = self.digest_password(self.decrypt_key(password))
+    end
     cipher.iv = iv
     crypt = cipher.update(message) + cipher.final()
     crypt_string = (Base64.encode64(crypt))
@@ -22,7 +24,7 @@ module EncryptText
   def self.encrypt_key(key)
     cipher=OpenSSL::Cipher.new(ALGORITHM)
     cipher.encrypt()
-    cipher.key=KEY32
+    cipher.key=KEY32 #encrypt with my key + random
     crypt = cipher.update(key) + cipher.final()
     crypt_string = (Base64.encode64(crypt))
     return crypt_string
@@ -39,13 +41,12 @@ module EncryptText
     return crypt
   end
 
-# 1. group password
-# 2. key: hash(password) <-- check their password
-# 3. hash(hash(password) = password_digest <-- check their password
-#
-# encrypt(group password(1))(my password) = sessions
-# decode - hash(their password)
+  #make random IV
+  def self.make_iv
+    SecureRandom.random_bytes(16)
+  end
 
+  #turn password into 256 bit
   def self.digest_password(password)
     OpenSSL::Digest::SHA256.new(password).digest
   end
@@ -53,7 +54,11 @@ module EncryptText
   def self.decrypt(message, password, iv)
     cipher=OpenSSL::Cipher.new(ALGORITHM)
     cipher.decrypt()
-    cipher.key = self.digest_password(password)
+    if password.nil?
+      cipher.key = KEY32
+    else
+      cipher.key = self.digest_password(self.decrypt_key(password))
+    end
     cipher.iv = iv
     tempkey = Base64.decode64(message)
     crypt = cipher.update(tempkey)

@@ -11,5 +11,5 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 message_key: "\xF6v\vQ\xA46S\xA8\xDCr*tM\xE9or" #add to user's passwords
 message_key_32: "\x86\xDD\xAC\x1F,\xF7W[5\xD2\x1C\xA7O\xBA\xBB9/y\xD2\xAFf\x91\e\xC1?\xD4\x13\xF1\ar@?"
-algorithm: "AES-128-ECB"
+algorithm: "AES-256-CBC"
 RAILS_GA_CODE: UA-96863281-1

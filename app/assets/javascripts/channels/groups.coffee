@@ -18,14 +18,14 @@ $ ->
         messages.append data['message']
         messages_to_bottom()
 
-      send_message: (message, group_id, user_id) ->
-        @perform 'send_message', message: message, group_id: group_id, user_id: user_id
+      send_message: (message, group_id, user_id, group_access) ->
+        @perform 'send_message', message: message, group_id: group_id, user_id: user_id, group_access: group_access
 
     $('#new_message').submit (e) ->
       $this = $(this)
       textarea = $this.find('#message_body')
       if $.trim(textarea.val()).length > 1
-        App.global_chat.send_message textarea.val(), messages.data('group-id'), messages.data('user-id')
+        App.global_chat.send_message textarea.val(), messages.data('group-id'), messages.data('user-id'), messages.data('group-access')
         textarea.val('')
       e.preventDefault()
       return false

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170407031910) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "iv"
+    t.binary   "iv"
   end
 
   create_table "users", force: :cascade do |t|

@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
       @group.random_title
     end
     if @group.save
+      cookies["group_#{@group.id}_access"]=Group.set_group_key(group_params[:password])
       respond_to do |format|
         format.html {render :makeusers, locals: {group: @group, user: User.new}, :layout=>false}
       end
@@ -60,7 +61,7 @@ class GroupsController < ApplicationController
 
   def authenticate
     if @group && @group.authenticate(group_params[:password])
-      session["group_#{@group.id}_access"]=Group.set_group_key(group_params[:password])
+      cookies["group_#{@group.id}_access"]=Group.set_group_key(group_params[:password])
       render :makeusers, locals: {group: @group, user: User.new}, :layout=>'layouts/formlayouts'
     else
       flash[:error]="Wrong Password"
