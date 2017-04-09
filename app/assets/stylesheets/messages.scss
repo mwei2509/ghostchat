@@ -59,14 +59,17 @@
 //
 .message-username{
   font-weight:500;
+  font-size:15px;
 }
 
 .message-guest{
-  color:#6A737D;
+  color:black;
+  font-weight:700 !important;
 }
 
 .message-content{
   font-weight:400;
+  overflow-wrap: break-word;
 }
 //
 .by-current-user{
@@ -117,6 +120,10 @@
   }
   .message-outer-wrap{
     padding-left:7px;
+    padding-bottom:3px;
+    &:hover{
+      background-color:#F8F8F8;
+    }
   }
 }
 
@@ -137,9 +144,9 @@
     bottom: 0;
     // left: 0;
     // right: 0;
-    -webkit-box-shadow: 0px -3px 3px rgba(50, 50, 50, 0.25);
-    -moz-box-shadow:    0px -3px 3px rgba(50, 50, 50, 0.25);
-    box-shadow:         0px -3px 3px rgba(50, 50, 50, 0.25);
+    -webkit-box-shadow: 0px -1px 1px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow:    0px -1px 1px rgba(50, 50, 50, 0.25);
+    box-shadow:         0px -1px 1px rgba(50, 50, 50, 0.25);
     border-top: 1px solid #fff;
     width: 100%;
     height: 10vh;
@@ -209,4 +216,11 @@
 }
 .scrollable * {
     -webkit-transform: translate3d(0,0,0);
+}
+
+.message-created-at{
+  color:#9A9A9A;
+  font-weight:300;
+  font-size:10px;
+  padding-left:5px;
 }
