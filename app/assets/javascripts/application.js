@@ -826,3 +826,8 @@ function newMessageClass(my_user_id){
     });
   }
 }
+
+function getGroupAccess(){
+  var groupaccess = document.getElementById("groupaccess").innerHTML
+  return groupaccess
+}

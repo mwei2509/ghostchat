@@ -8,4 +8,8 @@ module ApplicationHelper
       return User.find(session["group_#{group.id}_user_id"])
     end
   end
+
+  def fetch_key(group)
+    return cookies["group_#{group.id}_access"]
+  end
 end

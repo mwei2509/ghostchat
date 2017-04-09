@@ -34,6 +34,7 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem "figaro"
 gem "font-awesome-rails"
+gem "opentok", "~> 2.3"
 
 
 gem 'whenever', :require => false
